@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Window
 import android.view.WindowManager
 import cn.odinaris.booktravel.R
+import kotlinx.android.synthetic.main.act_login.*
 
 class LoginActivity : AppCompatActivity() {
 
@@ -22,7 +23,8 @@ class LoginActivity : AppCompatActivity() {
     private fun initData() {
         val titles = resources.getStringArray(R.array.loginType)
         val pageAdapter = LoginAdapter(supportFragmentManager,titles.toList())
-
+        vp_login_content.adapter = pageAdapter
+        tl_login_type.setupWithViewPager(vp_login_content)
     }
 
     private fun initView() {

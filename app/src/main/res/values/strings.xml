@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">书旅</string>
     <array name="loginType">
-        <item>登陆login</item>
-        <item>注册login</item>
+        <item>登陆</item>
+        <item>注册</item>
     </array>
 </resources>
