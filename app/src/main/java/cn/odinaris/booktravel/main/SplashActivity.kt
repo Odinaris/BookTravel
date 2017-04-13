@@ -10,6 +10,7 @@ import android.view.animation.AnimationUtils
 import cn.bmob.v3.Bmob
 import cn.odinaris.booktravel.MainActivity
 import cn.odinaris.booktravel.R
+import cn.odinaris.booktravel.utils.ImageUtils
 import kotlinx.android.synthetic.main.act_splash.*
 
 class SplashActivity : Activity() {
@@ -19,22 +20,19 @@ class SplashActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.act_splash)
-        Bmob.initialize(this, "1e664726dca54fa3ba5667e97e25e9ed")
+        Bmob.initialize(this, "6590c04360b490a8625cebf8826457b3")
         initImage()
     }
 
     private fun initImage() {
-        bmp = readBitMap(R.drawable.banner)
+        bmp = ImageUtils.readBitMap(R.drawable.banner,applicationContext)
         iv_start.setImageBitmap(bmp)
         //设置缩放动画
         val animation = AnimationUtils.loadAnimation(this@SplashActivity, R.anim.anim_start)
         animation.setAnimationListener(object : Animation.AnimationListener {
-            override fun onAnimationStart(animation: Animation) {
-                //可以在这里先进行某些操作
-            }
-            override fun onAnimationEnd(animation: Animation) {
-                startActivity()
-            }
+            //可以在这里先进行某些操作
+            override fun onAnimationStart(animation: Animation) { }
+            override fun onAnimationEnd(animation: Animation) { startActivity() }
             override fun onAnimationRepeat(animation: Animation) { }
         })
         iv_start.startAnimation(animation)
@@ -44,13 +42,6 @@ class SplashActivity : Activity() {
         startActivity(Intent(this@SplashActivity, MainActivity::class.java))
         finish()
         overridePendingTransition(R.anim.scale_in, R.anim.scale_out)
-    }
-
-    private fun readBitMap(resId: Int): Bitmap {
-        val opt = BitmapFactory.Options()
-        opt.inPreferredConfig = Bitmap.Config.RGB_565
-        val `is` = resources.openRawResource(resId)
-        return BitmapFactory.decodeStream(`is`, null, opt)
     }
 
     override fun onStop() {

@@ -1,13 +1,17 @@
 package cn.odinaris.booktravel.login
 
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Window
 import android.view.WindowManager
 import cn.odinaris.booktravel.R
+import cn.odinaris.booktravel.utils.ImageUtils
 import kotlinx.android.synthetic.main.act_login.*
 
 class LoginActivity : AppCompatActivity() {
+
+    private var bmp: Bitmap? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +32,13 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun initView() {
+        bmp = ImageUtils.readBitMap(R.drawable.ic_book,applicationContext)
+        iv_book.setImageBitmap(bmp)
+    }
 
+    override fun onStop() {
+        super.onStop()
+        bmp!!.recycle()
+        System.gc()
     }
 }
