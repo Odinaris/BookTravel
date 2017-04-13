@@ -4,8 +4,55 @@
         <item>登陆</item>
         <item>注册</item>
     </array>
-
-    <string name="title_activity_spalash">SpalashActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <array name="book_category">
+        <!--文艺-->
+        <item>小说</item>
+        <item>文学</item>
+        <item>传记</item>
+        <item>青春文学</item>
+        <item>动漫/幽默</item>
+        <item>摄影</item>
+        <item>艺术</item>
+        <!--人文社科-->
+        <item>哲学宗教</item>
+        <item>历史</item>
+        <item>政治军事</item>
+        <item>文化</item>
+        <item>社会科学</item>
+        <item>心理学</item>
+        <item>古籍</item>
+        <item>法律</item>
+        <!--经济管理-->
+        <item>经济</item>
+        <item>管理</item>
+        <item>投资理财</item>
+        <item>股票</item>
+        <item>金融</item>
+        <item>市场/销售</item>
+        <item>会计</item>
+        <item>互联网</item>
+        <!--励志-->
+        <item>励志/成功</item>
+        <item>心灵修养</item>
+        <item>职场</item>
+        <!--教育-->
+        <item>教辅</item>
+        <item>考研</item>
+        <item>英语四级/六级</item>
+        <item>考研</item>
+        <item>公务员</item>
+        <!--科技-->
+        <item>计算机/网络</item>
+        <item>科普读物</item>
+        <item>医学</item>
+        <item>工业技术</item>
+        <item>建筑</item>
+        <item>自然科学</item>
+        <item>农业/林业</item>
+        <!--生活-->
+        <item>运动/保健</item>
+        <item>旅游</item>
+        <item>美食</item>
+        <item>杂志</item>
+    </array>
 </resources>
