@@ -49,6 +49,8 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.ashokvarma.android:bottom-navigation-bar:1.2.0'
     testCompile 'junit:junit:4.12'
+    //垂直TabLayout
+    compile 'q.rorbin:VerticalTabLayout:1.2.2'
 }
 repositories {
     mavenCentral()

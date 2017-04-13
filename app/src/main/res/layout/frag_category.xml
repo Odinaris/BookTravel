@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/item_search_box" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="100sp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <q.rorbin.verticaltablayout.VerticalTabLayout
+                android:id="@+id/vtl_category"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#000000"
+                app:indicator_color="#FFFFFF"
+                app:indicator_gravity="fill"
+                app:tab_height="50dp"
+                app:tab_mode="scrollable" />
+        </LinearLayout>
+
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        </android.support.v4.view.ViewPager>
+
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
