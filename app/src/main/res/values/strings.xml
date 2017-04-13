@@ -4,4 +4,8 @@
         <item>登陆</item>
         <item>注册</item>
     </array>
+
+    <string name="title_activity_spalash">SpalashActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>
