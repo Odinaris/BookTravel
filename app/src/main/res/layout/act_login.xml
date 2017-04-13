@@ -32,7 +32,9 @@
         app:tabSelectedTextColor="#000000"
         app:tabTextColor="#8c8c8c"
         app:tabIndicatorColor="#000000"
-        android:layout_marginTop="16sp"/>
+        android:layout_marginTop="16sp"
+        android:layout_marginStart="32sp"
+        android:layout_marginEnd="32sp"/>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_login_content"
