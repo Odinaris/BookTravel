@@ -50,30 +50,18 @@
             android:gravity="center">
             <android.support.v4.widget.SwipeRefreshLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/rv_categories"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
+                    android:layout_height="match_parent"/>
             </android.support.v4.widget.SwipeRefreshLayout>
-
             <ProgressBar
                 android:id="@+id/news_detail_loading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:visibility="visible"/>
-
-
-
+                android:visibility="gone"/>
         </LinearLayout>
-
-
     </android.support.v4.widget.NestedScrollView>
-
-
-
-
-
 </android.support.design.widget.CoordinatorLayout>
