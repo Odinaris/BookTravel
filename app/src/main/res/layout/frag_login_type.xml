@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:hint="用户名"
         android:textColorHint="#c9c9c9"
-        android:textColor="#fff"/>
+        android:textColor="#fff"
+        android:textSize="14sp"/>
 
     <EditText
         android:id="@+id/et_password"
@@ -22,7 +23,8 @@
         android:textColorHint="#c9c9c9"
         android:textColor="#fff"
         android:inputType="textPassword"
-        android:layout_marginTop="32sp" />
+        android:layout_marginTop="32sp"
+        android:textSize="14sp"/>
 
     <android.support.v7.widget.CardView
         android:id="@+id/cv_loginOrRegister"
@@ -32,8 +34,8 @@
         android:layout_marginTop="32sp"
         android:layout_marginStart="32sp"
         android:layout_marginEnd="32sp"
-        app:cardElevation="4sp"
-        app:cardCornerRadius="4sp"
+        app:cardElevation="2sp"
+        app:cardCornerRadius="2sp"
         android:clickable="true"
         android:foreground="?android:attr/selectableItemBackgroundBorderless">
         <TextView
@@ -44,7 +46,8 @@
             android:textColor="#000000"
             android:textSize="16sp"
             android:gravity="center"
-            android:layout_margin="8sp"/>
+            android:layout_marginTop="16sp"
+            android:layout_marginBottom="16sp"/>
     </android.support.v7.widget.CardView>
 
     <LinearLayout

@@ -8,7 +8,7 @@ import android.os.Bundle
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import cn.bmob.v3.Bmob
-import cn.odinaris.booktravel.MainActivity
+import cn.odinaris.booktravel.main.MainActivity
 import cn.odinaris.booktravel.R
 import cn.odinaris.booktravel.utils.ImageUtils
 import kotlinx.android.synthetic.main.act_splash.*
