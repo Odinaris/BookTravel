@@ -24,7 +24,7 @@ class SplashActivity : Activity() {
     }
 
     private fun initImage() {
-        bmp = readBitMap(R.drawable.wallpaper)
+        bmp = readBitMap(R.drawable.banner)
         iv_start.setImageBitmap(bmp)
         //设置缩放动画
         val animation = AnimationUtils.loadAnimation(this@SplashActivity, R.anim.anim_start)
