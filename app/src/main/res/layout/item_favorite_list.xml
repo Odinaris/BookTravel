@@ -11,11 +11,12 @@
         android:orientation="horizontal"
         android:layout_margin="16sp">
         <LinearLayout
-            android:layout_width="3sp"
+            android:layout_width="6sp"
             android:layout_height="match_parent"
             android:background="#000">
         </LinearLayout>
         <TextView
+            android:id="@+id/tv_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Android第二行代码"
@@ -25,7 +26,9 @@
             android:textStyle="normal"/>
     </LinearLayout>
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_book_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:padding="8sp"/>
 
 </LinearLayout>
