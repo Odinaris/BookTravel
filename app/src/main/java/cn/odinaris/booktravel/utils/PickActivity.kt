@@ -1,4 +1,4 @@
-package cn.odinaris.booktravel.main
+package cn.odinaris.booktravel.utils
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
