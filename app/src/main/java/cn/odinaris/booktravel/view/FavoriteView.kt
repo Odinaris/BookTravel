@@ -16,7 +16,9 @@ class FavoriteView: LinearLayout{
     var mRecyclerView:RecyclerView = RecyclerView(context)
     var mTextColor = Color.BLACK
 
-    constructor(context: Context) : super(context)
+    constructor(context: Context) : super(context){
+        initView(context)
+    }
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs){
         initView(context)
