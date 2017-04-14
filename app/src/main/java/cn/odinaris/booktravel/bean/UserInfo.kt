@@ -4,5 +4,5 @@ import cn.bmob.v3.BmobUser
 
 class UserInfo : BmobUser(){
     var studentId:String = ""
-    var followCategory:ArrayList<String> = ArrayList()
+    var favoriteCategories:ArrayList<String> = ArrayList()
 }

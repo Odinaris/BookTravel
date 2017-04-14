@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,36 +37,45 @@
                 android:textColor="#686868"
                 android:textSize="14sp" />
         </LinearLayout>
-        <LinearLayout
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_follow_box"
             android:layout_width="100sp"
             android:layout_height="match_parent"
             android:layout_margin="16sp"
-            android:orientation="horizontal">
-            <ProgressBar
-                android:id="@+id/pb_loading"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="8sp"
-                android:visibility="gone"
-                style="?android:attr/progressBarStyleSmallTitle" />
-            <Button
-                android:id="@+id/btn_follow"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="关注"
-                android:textColor="#fff"
-                android:background="#000"
-                android:visibility="visible"/>
-            <Button
-                android:id="@+id/btn_unfollow"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="已关注"
-                android:textColor="#000000"
-                android:background="@drawable/funn_border"
-                android:visibility="gone"/>
+            app:cardCornerRadius="16sp"
+            app:cardBackgroundColor="#000000">
 
-        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ProgressBar
+                    android:id="@+id/pb_loading"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="12sp"
+                    android:visibility="gone" />
+                <TextView
+                    android:id="@+id/tv_follow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="关注"
+                    android:textColor="#fff"
+                    android:visibility="visible"
+                    android:gravity="center"/>
+                <TextView
+                    android:id="@+id/tv_unfollow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="已关注"
+                    android:textColor="#000000"
+                    android:background="@drawable/full_border"
+                    android:gravity="center"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
 
     </LinearLayout>
 

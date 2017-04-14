@@ -21,7 +21,6 @@ class HomeFragment : Fragment(),View.OnClickListener{
     }
 
     private val REQUEST_CODE_PICK_CITY = 0
-    //private var carList: ArrayList<CarIntro>? = ArrayList()
     private var viewList: ArrayList<View> = ArrayList()
     private val loadingNum = 10
     private val skipNum = 0
