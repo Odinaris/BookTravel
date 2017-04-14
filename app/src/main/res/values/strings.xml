@@ -4,6 +4,15 @@
         <item>登陆</item>
         <item>注册</item>
     </array>
+    <array name="parentCategories">
+        <item>文艺</item>
+        <item>人文社科</item>
+        <item>经济管理</item>
+        <item>励志</item>
+        <item>教育</item>
+        <item>科技</item>
+        <item>生活</item>
+    </array>
     <!--文艺-->
     <array name="cat_literature_art">
         <item>小说</item>

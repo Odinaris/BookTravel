@@ -19,7 +19,7 @@ class BookInfo : BmobObject(){
     var img1:BmobFile = BmobFile()//用户上传的书籍实物图1
     var img2:BmobFile = BmobFile()//用户上传的书籍实物图2
     var img3:BmobFile = BmobFile()//用户上传的书籍实物图3
-    var flag = 0//0表示此书待售，1表示此书用于漂流，2表示此书当前正在借阅中
+    var flag = 0//0表示此书待售，1表示此书用于漂流，2表示此书当前正在借阅中,3表示取消的售书信息
     /**
      * For Sale
      * */

@@ -2,15 +2,10 @@ package cn.odinaris.booktravel.category
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.content.ContextCompat
+import android.support.v4.app.FragmentManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import com.ashokvarma.bottomnavigation.BottomNavigationBar
-import java.util.*
-import android.content.Context
-import cn.bmob.v3.BmobQuery
 import cn.odinaris.booktravel.R
 import cn.odinaris.booktravel.bean.BookCategory
 import kotlinx.android.synthetic.main.frag_category.*
@@ -37,22 +32,13 @@ class CategoryFragment : Fragment(){
 
     }
 
-    private fun initClickListener() {
-        vtl_category.addOnTabSelectedListener(object:VerticalTabLayout.OnTabSelectedListener{
-            override fun onTabReselected(tab: TabView?, position: Int) {
-
-            }
-
-            override fun onTabSelected(tab: TabView?, position: Int) {
-
-            }
-
-        })
-    }
+    private fun initClickListener() {}
 
     private fun initView() {
-
-        vtl_category.setupWithViewPager(vp_category)
+        val titles = resources.getStringArray(R.array.parentCategories)
+        val pageAdapter = CategoryAdapter(childFragmentManager,titles.toList())
+        vp_category.adapter = pageAdapter
+        tl_category.setupWithViewPager(vp_category)
     }
 
 }

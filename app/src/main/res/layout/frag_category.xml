@@ -3,30 +3,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#f2f2f2">
 
     <include layout="@layout/item_search_box" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
-        <q.rorbin.verticaltablayout.VerticalTabLayout
-            android:id="@+id/vtl_category"
-            android:layout_width="100sp"
-            android:layout_height="match_parent"
-            android:background="#ffffff"
-            app:indicator_color="#000000"
-            app:indicator_gravity="fill"
-            app:tab_height="50dp"
-            app:tab_mode="scrollable" />
+        android:orientation="vertical">
+        <!--<q.rorbin.verticaltablayout.VerticalTabLayout-->
+            <!--android:id="@+id/vtl_category"-->
+            <!--android:layout_width="100sp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#ffffff"-->
+            <!--app:indicator_color="#000000"-->
+            <!--app:indicator_gravity="fill"-->
+            <!--app:tab_height="50dp"-->
+            <!--app:tab_mode="scrollable" />-->
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tl_category"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#000000"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="#ffffff"
+            app:tabTextColor="#a6a6a6"
+            app:tabIndicatorColor="#ffffff" />
         <android.support.v4.view.ViewPager
             android:id="@+id/vp_category"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="wrap_content"/>
     </LinearLayout>
-
-
-
-
 </LinearLayout>

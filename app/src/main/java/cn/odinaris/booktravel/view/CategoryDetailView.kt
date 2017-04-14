@@ -1,18 +1,21 @@
 package cn.odinaris.booktravel.view
 
 import android.content.Context
-import android.graphics.Color
 import android.support.v7.widget.CardView
-import android.support.v7.widget.RecyclerView
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.widget.LinearLayout
+import android.widget.ProgressBar
 import android.widget.TextView
 import cn.odinaris.booktravel.R
+import kotlinx.android.synthetic.main.item_category_detail.view.*
 
 class CategoryDetailView:CardView{
-    var mTextView: TextView = TextView(context)
-    var mRecyclerView: RecyclerView = RecyclerView(context)
-    var mTextColor = Color.BLACK
+    var mCategoryName = TextView(context)
+    var mFollowNum = TextView(context)
+    var mBookNum = TextView(context)
+    var cuttingLine = LinearLayout(context)
+    var mProgressBar = ProgressBar(context)
 
     constructor(context: Context) : super(context){ initView(context) }
 
@@ -24,5 +27,10 @@ class CategoryDetailView:CardView{
 
     private fun initView(context: Context) {
         LayoutInflater.from(context).inflate(R.layout.item_category_detail,this,true)
+        mCategoryName = tv_category_detail_name
+        mFollowNum = tv_followNum
+        mBookNum = tv_bookNum
+        cuttingLine = ll_cuttingLine
+        mProgressBar = pb_loading
     }
 }

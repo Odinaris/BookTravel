@@ -33,7 +33,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".utils.PickActivity"></activity>
+        <activity android:name=".utils.PickActivity" />
+        <activity android:name=".utils.BookListActivity"></activity>
     </application>
 
 </manifest>
