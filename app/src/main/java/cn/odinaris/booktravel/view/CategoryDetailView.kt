@@ -14,8 +14,6 @@ class CategoryDetailView:CardView{
     var mCategoryName = TextView(context)
     var mFollowNum = TextView(context)
     var mBookNum = TextView(context)
-    var cuttingLine = LinearLayout(context)
-    var mProgressBar = ProgressBar(context)
 
     constructor(context: Context) : super(context){ initView(context) }
 
@@ -30,7 +28,5 @@ class CategoryDetailView:CardView{
         mCategoryName = tv_category_detail_name
         mFollowNum = tv_followNum
         mBookNum = tv_bookNum
-        cuttingLine = ll_cuttingLine
-        mProgressBar = pb_loading
     }
 }

@@ -30,9 +30,28 @@
             app:tabSelectedTextColor="#ffffff"
             app:tabTextColor="#a6a6a6"
             app:tabIndicatorColor="#ffffff" />
+        <LinearLayout
+            android:id="@+id/ll_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:visibility="visible">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="16sp"
+                android:text="加载数据中..."
+                android:textColor="#000"
+                android:gravity="center" />
+            <!--<ProgressBar-->
+            <!--android:layout_width="48sp"-->
+            <!--android:layout_height="48sp"-->
+            <!--android:indeterminateDrawable="@drawable/my_progressbar"/>-->
+        </LinearLayout>
         <android.support.v4.view.ViewPager
             android:id="@+id/vp_category"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
     </LinearLayout>
 </LinearLayout>

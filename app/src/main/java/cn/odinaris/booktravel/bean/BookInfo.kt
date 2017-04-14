@@ -2,6 +2,7 @@ package cn.odinaris.booktravel.bean
 
 import cn.bmob.v3.BmobObject
 import cn.bmob.v3.datatype.BmobFile
+import cn.bmob.v3.datatype.BmobPointer
 import cn.bmob.v3.datatype.BmobRelation
 
 class BookInfo : BmobObject(){
@@ -10,7 +11,7 @@ class BookInfo : BmobObject(){
     var author = ""//书籍作者
     var category = ""//书籍分类
     var press = ""//书籍出版商
-    var owner:UserInfo = UserInfo()//书籍当前拥有者
+    var belongUser: BmobPointer = BmobPointer()//当前书籍拥有者
     var followedNum:Int = 0//关注该书的人数
     var commentsNum:Int = 0//评论该书的人数
     var follower:BmobRelation = BmobRelation()//关注该书的用户列表

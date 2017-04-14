@@ -3,13 +3,13 @@ package cn.odinaris.booktravel.main
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import cn.bmob.v3.Bmob
-import cn.odinaris.booktravel.main.MainActivity
+import cn.bmob.v3.BmobUser
 import cn.odinaris.booktravel.R
+import cn.odinaris.booktravel.login.LoginActivity
 import cn.odinaris.booktravel.utils.ImageUtils
 import kotlinx.android.synthetic.main.act_splash.*
 
@@ -39,7 +39,11 @@ class SplashActivity : Activity() {
     }
 
     private fun startActivity() {
-        startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+        if(BmobUser.getCurrentUser()!=null){
+            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+        }else{
+            startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+        }
         finish()
         overridePendingTransition(R.anim.scale_in, R.anim.scale_out)
     }

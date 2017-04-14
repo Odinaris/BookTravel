@@ -10,6 +10,7 @@ import cn.odinaris.booktravel.R
 import cn.odinaris.booktravel.category.CategoryFragment
 import cn.odinaris.booktravel.home.HomeFragment
 import cn.odinaris.booktravel.login.LoginActivity
+import cn.odinaris.booktravel.user.UserFragment
 import com.ashokvarma.bottomnavigation.BottomNavigationBar
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
 import kotlinx.android.synthetic.main.act_main.*
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     val fragmentsList = ArrayList<Fragment>()
     val home = HomeFragment()
     val category = CategoryFragment()
+    var user = UserFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         fragmentsList.add(1, category)
         fragmentsList.add(2, home)
         fragmentsList.add(3, home)
-        fragmentsList.add(4, home)
+        fragmentsList.add(4, user)
         bnb_navigator
                 .addItem(BottomNavigationItem(R.drawable.ic_home,"主页"))
                 .addItem(BottomNavigationItem(R.drawable.ic_category,"分类"))
@@ -80,6 +82,13 @@ class MainActivity : AppCompatActivity() {
                         } else {
                             transaction.show(home) }
                     }
+                    4 -> {
+                        if (!user.isAdded) {
+                            transaction.add(R.id.ll_container, user).show(user)
+                        } else {
+                            transaction.show(user) }
+                    }
+
                 }
                 transaction.commit()
             }
