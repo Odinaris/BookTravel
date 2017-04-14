@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import cn.bmob.v3.BmobUser
 import cn.odinaris.booktravel.R
 import cn.odinaris.booktravel.login.LoginActivity
+import cn.odinaris.booktravel.utils.PickActivity
 import kotlinx.android.synthetic.main.frag_user.*
 
 
@@ -31,6 +32,9 @@ class UserFragment : Fragment(){
                 BmobUser.logOut()
                 startActivity(Intent(activity,LoginActivity::class.java))
             }
+        }
+        btn_pick_category.setOnClickListener {
+            startActivity(Intent(activity, PickActivity::class.java))
         }
     }
 

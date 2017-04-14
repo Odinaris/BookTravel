@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="2sp"
+    app:cardBackgroundColor="#fff"
+    app:cardCornerRadius="2sp"
+    android:layout_margin="4sp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,8 +17,8 @@
         <ImageView
             android:id="@+id/iv_icon_category"
             android:layout_width="80sp"
-            android:layout_height="80sp"
-            android:padding="8sp"
+            android:layout_height="100sp"
+            android:padding="16sp"
             android:src="@drawable/ic_cat_education"/>
         <LinearLayout
             android:layout_width="0sp"
@@ -39,16 +44,17 @@
         </LinearLayout>
         <android.support.v7.widget.CardView
             android:id="@+id/cv_follow_box"
-            android:layout_width="100sp"
+            android:layout_width="80sp"
             android:layout_height="match_parent"
-            android:layout_margin="16sp"
+            android:layout_margin="24sp"
             app:cardCornerRadius="16sp"
             app:cardBackgroundColor="#000000">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                >
                 <ProgressBar
                     android:id="@+id/pb_loading"
                     android:layout_width="match_parent"
@@ -71,7 +77,8 @@
                     android:textColor="#000000"
                     android:background="@drawable/full_border"
                     android:gravity="center"
-                    android:visibility="gone" />
+                    android:visibility="gone"
+                    />
 
             </LinearLayout>
         </android.support.v7.widget.CardView>

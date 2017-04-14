@@ -2,14 +2,12 @@ package cn.odinaris.booktravel.login
 
 import android.app.AlertDialog
 import android.support.v4.app.Fragment
-import cn.bmob.v3.Bmob
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.view.ViewGroup
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.EditText
-import android.widget.Toast
 import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.SaveListener
 import cn.odinaris.booktravel.R
@@ -48,7 +46,7 @@ class LoginFragment(val type:String): Fragment() {
                                         .addCallback(object: Snackbar.Callback() {
                                             override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
                                                 super.onDismissed(transientBottomBar, event)
-                                                startActivity(Intent(activity,MainActivity::class.java))
+                                                startActivity(Intent(activity,PickActivity::class.java))
                                             }
                                         }).show()
                             }else{
