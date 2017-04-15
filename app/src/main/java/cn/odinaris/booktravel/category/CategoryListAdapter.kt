@@ -10,6 +10,7 @@ import android.widget.*
 import cn.odinaris.booktravel.R
 import android.support.v4.content.ContextCompat.startActivity
 import cn.odinaris.booktravel.bean.BookCategory
+import com.bumptech.glide.Glide
 
 class CategoryListAdapter(var categoryList:ArrayList<BookCategory>, val context:Context)
     : RecyclerView.Adapter<CategoryListAdapter.ViewHolder>(){
@@ -23,6 +24,7 @@ class CategoryListAdapter(var categoryList:ArrayList<BookCategory>, val context:
             intent.putExtra("category",categoryList[position].name)
             startActivity(context,intent,null)
         }
+        Glide.with(context).load(categoryList[position].categoriyUrl).into(holder.thumbnail)
     }
 
     override fun getItemCount(): Int { return categoryList.size }
@@ -38,5 +40,6 @@ class CategoryListAdapter(var categoryList:ArrayList<BookCategory>, val context:
         var name = itemView.findViewById(R.id.tv_category_detail_name) as TextView
         var followNum = itemView.findViewById(R.id.tv_followNum) as TextView
         var bookNum = itemView.findViewById(R.id.tv_bookNum) as TextView
+        var thumbnail = itemView.findViewById(R.id.iv_category_thumbnail) as ImageView
     }
 }

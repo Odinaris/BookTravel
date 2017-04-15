@@ -40,13 +40,11 @@ class LoginFragment(val type:String): Fragment() {
                     userInfo.login(object:SaveListener<UserInfo>(){
                         override fun done(user: UserInfo?, e: BmobException?) {
                             if(e == null){
-//                                val dialog = AlertDialog.Builder(context)
-//                                dialog.setMessage("登陆成功!").setPositiveButton("好的",null).show()
                                 Snackbar.make(ll_container,"登陆成功!",Snackbar.LENGTH_SHORT)
                                         .addCallback(object: Snackbar.Callback() {
                                             override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
                                                 super.onDismissed(transientBottomBar, event)
-                                                startActivity(Intent(activity,PickActivity::class.java))
+                                                startActivity(Intent(activity,MainActivity::class.java))
                                             }
                                         }).show()
                             }else{

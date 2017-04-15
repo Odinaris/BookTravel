@@ -8,6 +8,7 @@ class BookCategory: BmobObject(){
     var parentCategory = ""
     var followNum = 0
     var bookNum = 0
-    var followedUsers: BmobRelation = BmobRelation()//关注当前分类的用户索引信息
+    var followedUsers = BmobRelation()//关注当前分类的用户索引信息
     var categoriyUrl = ""//分类图片Url
+    //var bookList = BmobRelation()//当前分类所有书目索引
 }
