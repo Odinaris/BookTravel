@@ -1,6 +1,7 @@
 package cn.odinaris.booktravel.book_detail
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Paint
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -17,6 +18,11 @@ class BookListAdapter(var flag:Int, var bookList:ArrayList<BookInfo>, val contex
     : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
+        holder!!.itemView.setOnClickListener {
+            val intent = Intent(context,BookDetailActivity::class.java)
+            intent.putExtra("objectId",bookList[position].objectId)
+            context.startActivity(intent)
+        }
         if(holder is SaleViewHolder){
             holder.name.text = bookList[position].name
             holder.author.text = "作者:" + bookList[position].author
