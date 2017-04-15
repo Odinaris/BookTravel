@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="cn.odinaris.booktravel.utils.PickActivity">
+    tools:context="cn.odinaris.booktravel.picker.PickActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0sp"

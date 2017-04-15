@@ -1,4 +1,4 @@
-package cn.odinaris.booktravel.utils
+package cn.odinaris.booktravel.book_detail
 
 import android.content.Context
 import android.graphics.Paint
@@ -13,8 +13,8 @@ import com.bumptech.glide.Glide
 
 
 
-class ManageListAdapter(var flag:Int, var bookList:ArrayList<BookInfo>, val context:Context)
-    : RecyclerView.Adapter< RecyclerView.ViewHolder>(){
+class BookListAdapter(var flag:Int, var bookList:ArrayList<BookInfo>, val context: Context)
+    : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
         if(holder is SaleViewHolder){
@@ -44,16 +44,12 @@ class ManageListAdapter(var flag:Int, var bookList:ArrayList<BookInfo>, val cont
 
     override fun getItemCount(): Int { return bookList.size }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int):  RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
         when(viewType){
             0->{ return SaleViewHolder(
                     LayoutInflater.from(context).inflate(R.layout.item_info_sale, parent, false)) }
             1->{ return CrossViewHolder(
                     LayoutInflater.from(context).inflate(R.layout.item_info_cross, parent, false)) }
-            2->{ return CrossViewHolder(
-                    LayoutInflater.from(context).inflate(R.layout.item_info_cross, parent, false)) }
-            3->{ return SaleViewHolder(
-                    LayoutInflater.from(context).inflate(R.layout.item_info_sale, parent, false)) }
             else->{
                 return SaleViewHolder(
                         LayoutInflater.from(context).inflate(R.layout.item_info_sale, parent, false))
@@ -64,7 +60,7 @@ class ManageListAdapter(var flag:Int, var bookList:ArrayList<BookInfo>, val cont
 
     override fun getItemViewType(position: Int): Int { return flag }
 
-    class SaleViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
+    class SaleViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         var name = itemView.findViewById(R.id.tv_book_name) as TextView
         var author = itemView.findViewById(R.id.tv_author) as TextView
         var press = itemView.findViewById(R.id.tv_press) as TextView
@@ -75,7 +71,7 @@ class ManageListAdapter(var flag:Int, var bookList:ArrayList<BookInfo>, val cont
         var oldDegreeTips = itemView.findViewById(R.id.tv_tips_old_degree) as TextView
     }
 
-    class CrossViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
+    class CrossViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         var name = itemView.findViewById(R.id.tv_book_name) as TextView
         var author = itemView.findViewById(R.id.tv_author) as TextView
         var press = itemView.findViewById(R.id.tv_press) as TextView

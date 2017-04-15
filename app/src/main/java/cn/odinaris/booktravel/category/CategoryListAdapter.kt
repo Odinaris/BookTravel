@@ -10,6 +10,7 @@ import android.widget.*
 import cn.odinaris.booktravel.R
 import android.support.v4.content.ContextCompat.startActivity
 import cn.odinaris.booktravel.bean.BookCategory
+import cn.odinaris.booktravel.book_detail.BookListActivity
 import com.bumptech.glide.Glide
 
 class CategoryListAdapter(var categoryList:ArrayList<BookCategory>, val context:Context)
@@ -20,7 +21,7 @@ class CategoryListAdapter(var categoryList:ArrayList<BookCategory>, val context:
         holder.followNum.text = categoryList[position].followNum.toString() + "人关注"
         holder.bookNum.text = categoryList[position].bookNum.toString() + "本书"
         holder.itemView.setOnClickListener {
-            val intent = Intent(context,BookListActivity::class.java)
+            val intent = Intent(context, BookListActivity::class.java)
             intent.putExtra("category",categoryList[position].name)
             startActivity(context,intent,null)
         }

@@ -15,7 +15,7 @@ import cn.odinaris.booktravel.bean.UserInfo
 import kotlinx.android.synthetic.main.frag_login_type.*
 import cn.odinaris.booktravel.main.MainActivity
 import android.content.Intent
-import cn.odinaris.booktravel.utils.PickActivity
+import cn.odinaris.booktravel.picker.PickActivity
 
 
 class LoginFragment(val type:String): Fragment() {

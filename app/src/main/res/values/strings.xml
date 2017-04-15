@@ -81,4 +81,8 @@
         <item>在阅</item>
         <item>撤销</item>
     </array>
+    <array name="bookType">
+        <item>购买图书</item>
+        <item>图书漂流</item>
+    </array>
 </resources>

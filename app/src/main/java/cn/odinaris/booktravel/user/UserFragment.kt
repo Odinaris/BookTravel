@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import cn.bmob.v3.BmobUser
 import cn.odinaris.booktravel.R
 import cn.odinaris.booktravel.login.LoginActivity
-import cn.odinaris.booktravel.utils.PickActivity
+import cn.odinaris.booktravel.picker.PickActivity
 import kotlinx.android.synthetic.main.frag_user.*
 
 

@@ -1,4 +1,4 @@
-package cn.odinaris.booktravel.utils
+package cn.odinaris.booktravel.picker
 
 import android.content.Context
 import android.os.Handler
@@ -17,7 +17,7 @@ import com.bumptech.glide.Glide
 import android.os.Looper
 import cn.bmob.v3.datatype.BmobRelation
 
-class PickAdapter(var categoryList:ArrayList<BookCategory>, val context:Context)
+class PickAdapter(var categoryList:ArrayList<BookCategory>, val context: Context)
     : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
     var followedList = ArrayList<BookCategory>()
@@ -34,7 +34,7 @@ class PickAdapter(var categoryList:ArrayList<BookCategory>, val context:Context)
             holder.categoryInfo.text = categoryList[position].followNum.toString() +
                     "人关注" + "·共" + categoryList[position].bookNum.toString() + "本书"
             holder.categoryName.text = categoryList[position].name
-            for(category:BookCategory in followedList){
+            for(category: BookCategory in followedList){
                 if(category.name == categoryList[position].name){
                     holder.follow.visibility = View.GONE
                     holder.unfollow.visibility = View.VISIBLE
@@ -83,7 +83,7 @@ class PickAdapter(var categoryList:ArrayList<BookCategory>, val context:Context)
 
     fun setFollowedCategories(category:ArrayList<BookCategory>){ followedList = category }
 
-    class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         var categoryIcon = itemView.findViewById(R.id.iv_icon_category) as ImageView
         var categoryName = itemView.findViewById(R.id.tv_category_name) as TextView
         var categoryInfo = itemView.findViewById(R.id.tv_category_info) as TextView
