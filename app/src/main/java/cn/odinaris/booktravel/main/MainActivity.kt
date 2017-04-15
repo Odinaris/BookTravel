@@ -5,11 +5,14 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentTransaction
+import android.support.v7.app.AlertDialog
+import android.support.v7.widget.CardView
 import android.view.Window
+import android.widget.Toast
 import cn.odinaris.booktravel.R
 import cn.odinaris.booktravel.category.CategoryFragment
 import cn.odinaris.booktravel.home.HomeFragment
-import cn.odinaris.booktravel.login.LoginActivity
+import cn.odinaris.booktravel.publish.PublishActivity
 import cn.odinaris.booktravel.user.UserFragment
 import com.ashokvarma.bottomnavigation.BottomNavigationBar
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
@@ -38,8 +41,7 @@ class MainActivity : AppCompatActivity() {
         fragmentsList.add(0, home)
         fragmentsList.add(1, category)
         fragmentsList.add(2, home)
-        fragmentsList.add(3, home)
-        fragmentsList.add(4, user)
+        fragmentsList.add(3, user)
         bnb_navigator
                 .addItem(BottomNavigationItem(R.drawable.ic_home,"主页"))
                 .addItem(BottomNavigationItem(R.drawable.ic_category,"分类"))
@@ -48,7 +50,28 @@ class MainActivity : AppCompatActivity() {
                 .addItem(BottomNavigationItem(R.drawable.ic_user,"我"))
                 .setFirstSelectedPosition(0).initialise()
         bnb_navigator.setTabSelectedListener(object: BottomNavigationBar.OnTabSelectedListener{
-            override fun onTabReselected(position: Int) { }
+            override fun onTabReselected(position: Int) {
+                when(position){
+                    2 -> {
+                        val dialog = AlertDialog.Builder(this@MainActivity).create()
+                        dialog.show()
+                        val window = dialog.window
+                        window.setContentView(R.layout.dialog_publish)
+                        val saleCard = window.findViewById(R.id.cv_saleBook) as CardView
+                        val crossCard = window.findViewById(R.id.cv_crossBook) as CardView
+                        saleCard.setOnClickListener {
+                            val intent = Intent(this@MainActivity, PublishActivity::class.java)
+                            intent.putExtra("type",0)
+                            startActivity(intent)
+                        }
+                        crossCard.setOnClickListener {
+                            val intent = Intent(this@MainActivity, PublishActivity::class.java)
+                            intent.putExtra("type",1)
+                            startActivity(intent)
+                        }
+                    }
+                }
+            }
 
             override fun onTabUnselected(position: Int) { }
 
@@ -71,10 +94,22 @@ class MainActivity : AppCompatActivity() {
                             transaction.show(category) }
                     }
                     2 -> {
-                        if (!home.isAdded) {
-                            transaction.add(R.id.ll_container, home).show(home)
-                        } else {
-                            transaction.show(home) }
+                        val dialog = AlertDialog.Builder(this@MainActivity).create()
+                        dialog.show()
+                        val window = dialog.window
+                        window.setContentView(R.layout.dialog_publish)
+                        val saleCard = window.findViewById(R.id.cv_saleBook) as CardView
+                        val crossCard = window.findViewById(R.id.cv_crossBook) as CardView
+                        saleCard.setOnClickListener {
+                            val intent = Intent(this@MainActivity, PublishActivity::class.java)
+                            intent.putExtra("type",0)
+                            startActivity(intent)
+                        }
+                        crossCard.setOnClickListener {
+                            val intent = Intent(this@MainActivity, PublishActivity::class.java)
+                            intent.putExtra("type",1)
+                            startActivity(intent)
+                        }
                     }
                     3 -> {
                         if (!home.isAdded) {
@@ -93,7 +128,6 @@ class MainActivity : AppCompatActivity() {
                 transaction.commit()
             }
         })
-       // test.setOnClickListener { startActivity(Intent(this,LoginActivity::class.java)) }
     }
 
     private fun setDefaultFragment() {

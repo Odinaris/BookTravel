@@ -34,7 +34,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".utils.PickActivity" />
-        <activity android:name=".utils.BookListActivity"></activity>
+        <activity android:name=".utils.BookListActivity" />
+        <activity android:name=".publish.PublishActivity"></activity>
     </application>
 
 </manifest>

@@ -11,15 +11,15 @@ class BookInfo : BmobObject(){
     var author = ""//书籍作者
     var category = ""//书籍分类
     var press = ""//书籍出版商
-    var belongUser: BmobPointer = BmobPointer()//当前书籍拥有者
+    var belongUser = UserInfo()//当前书籍拥有者
     var followedNum:Int = 0//关注该书的人数
     var commentsNum:Int = 0//评论该书的人数
-    var follower:BmobRelation = BmobRelation()//关注该书的用户列表
-    var comments:BmobRelation = BmobRelation()//评论该书的用户列表
-    var coverUrl = ""//该书的官方封面图
-    var img1:BmobFile = BmobFile()//用户上传的书籍实物图1
-    var img2:BmobFile = BmobFile()//用户上传的书籍实物图2
-    var img3:BmobFile = BmobFile()//用户上传的书籍实物图3
+    var followedUsers:BmobRelation = BmobRelation()//关注该书的用户列表
+    //var comments:BmobRelation = BmobRelation()//评论该书的用户列表
+    //var coverUrl = ""//该书的官方封面图
+    var img1 = ""//用户上传的书籍实物图1
+    var img2 = ""//用户上传的书籍实物图2
+    var img3 = ""//用户上传的书籍实物图3
     var flag = 0//0表示此书待售，1表示此书用于漂流，2表示此书当前正在借阅中,3表示取消的售书信息
     /**
      * For Sale
