@@ -2,7 +2,10 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="2sp"
+    android:layout_margin="4sp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,7 +30,7 @@
                 android:text="PHP从入门到精通(第三版)"
                 android:maxLines="2"
                 android:textColor="#000"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
             <TextView
                 android:id="@+id/tv_press"
                 android:layout_width="match_parent"
@@ -59,26 +62,29 @@
             <TextView
                 android:id="@+id/tv_tripNum"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0sp"
+                android:layout_weight="1"
                 android:text="16"
                 android:textSize="32sp"
                 android:textStyle="bold"
                 android:textColor="#ed1010"
-                android:gravity="center"/>
+                android:gravity="bottom|center_horizontal"/>
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
+                android:layout_width="30sp"
+                android:layout_height="1dp"
                 android:background="#7c7c7c"
-                android:layout_margin="8sp"/>
+                android:layout_margin="4sp"/>
+
             <TextView
+                android:id="@+id/textView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0sp"
+                android:layout_weight="1"
+                android:gravity="top|center_horizontal"
                 android:text="旅行次数"
-                android:textSize="12sp"
-                android:textStyle="normal"
                 android:textColor="#a3a3a3"
-                android:gravity="center"
-                />
+                android:textSize="12sp"
+                android:textStyle="normal" />
         </LinearLayout>
 
     </LinearLayout>

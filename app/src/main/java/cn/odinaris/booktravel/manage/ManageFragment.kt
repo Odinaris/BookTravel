@@ -6,12 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import cn.odinaris.booktravel.R
-import cn.odinaris.booktravel.bean.BookCategory
+import cn.odinaris.booktravel.category.ManageTabAdapter
+import kotlinx.android.synthetic.main.frag_manage.*
 
 class ManageFragment : Fragment(){
-
-    var categoryList = ArrayList<BookCategory>()
-
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val view : View = inflater!!.inflate(R.layout.frag_manage,container,false)
@@ -23,6 +21,9 @@ class ManageFragment : Fragment(){
     }
 
     private fun init(){
-
+        val titles = resources.getStringArray(R.array.manageList)
+        val pageAdapter = ManageTabAdapter(childFragmentManager,titles.toList())
+        vp_manage.adapter = pageAdapter
+        tl_manage.setupWithViewPager(vp_manage)
     }
 }

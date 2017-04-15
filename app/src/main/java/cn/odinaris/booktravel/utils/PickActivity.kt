@@ -25,6 +25,11 @@ class PickActivity : AppCompatActivity(){
         setContentView(R.layout.act_pick)
         initView()
         initData()
+        initClickListener()
+    }
+
+    private fun initClickListener() {
+        tv_submit.setOnClickListener { finish() }
     }
 
     private fun initData() {
@@ -47,11 +52,10 @@ class PickActivity : AppCompatActivity(){
                                 pb_loading.visibility = View.GONE
                                 adapter.setFollowedCategories(followedList)
                                 rv_categories.adapter = adapter
-                                manager.isScrollEnabled = false
+                                manager.isScrollEnabled = true
                                 rv_categories.layoutManager = manager
                                 rv_categories.visibility = View.VISIBLE
                             }
-
                         }
                     })
                 }else if(e!=null){
@@ -59,7 +63,6 @@ class PickActivity : AppCompatActivity(){
                     dialog.setMessage(e.message).show()
                 }
             }
-
         })
     }
 

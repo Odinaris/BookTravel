@@ -19,14 +19,16 @@
             android:layout_width="80sp"
             android:layout_height="100sp"
             android:padding="16sp"
-            android:src="@drawable/ic_cat_education"/>
+            android:src="@drawable/ic_cat_education" />
+
         <LinearLayout
             android:layout_width="0sp"
             android:layout_height="match_parent"
+            android:layout_marginStart="16sp"
             android:layout_weight="1"
-            android:orientation="vertical"
             android:gravity="center"
-            android:layout_marginStart="16sp">
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/tv_category_name"
                 android:layout_width="match_parent"
@@ -34,6 +36,7 @@
                 android:text="考研"
                 android:textColor="#000"
                 android:textSize="18sp" />
+
             <TextView
                 android:id="@+id/tv_category_info"
                 android:layout_width="match_parent"
@@ -42,43 +45,48 @@
                 android:textColor="#686868"
                 android:textSize="14sp" />
         </LinearLayout>
+
         <android.support.v7.widget.CardView
             android:id="@+id/cv_follow_box"
             android:layout_width="80sp"
             android:layout_height="match_parent"
-            android:layout_margin="24sp"
-            app:cardCornerRadius="16sp"
-            app:cardBackgroundColor="#000000">
+            android:layout_marginStart="24sp"
+            android:layout_marginEnd="24sp"
+            android:layout_marginTop="32sp"
+            android:layout_marginBottom="32sp"
+            app:cardBackgroundColor="#414141"
+            app:cardCornerRadius="0sp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                >
+                android:orientation="horizontal">
+
                 <ProgressBar
                     android:id="@+id/pb_loading"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="12sp"
+                    android:padding="8sp"
                     android:visibility="gone" />
-                <TextView
-                    android:id="@+id/tv_follow"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="关注"
-                    android:textColor="#fff"
-                    android:visibility="visible"
-                    android:gravity="center"/>
+
                 <TextView
                     android:id="@+id/tv_unfollow"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:gravity="center"
                     android:text="已关注"
-                    android:textColor="#000000"
+                    android:textColor="#fff"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_follow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:background="@drawable/full_border"
                     android:gravity="center"
-                    android:visibility="gone"
-                    />
+                    android:text="关注"
+                    android:textColor="#000000"
+                    android:visibility="visible" />
 
             </LinearLayout>
         </android.support.v7.widget.CardView>

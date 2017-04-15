@@ -5,7 +5,11 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import cn.bmob.v3.BmobQuery
+import cn.bmob.v3.BmobUser
 import cn.odinaris.booktravel.R
+import cn.odinaris.booktravel.bean.BookInfo
+import cn.odinaris.booktravel.bean.UserInfo
 
 class BookListFragment(flag:Int) : Fragment(){
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -24,6 +28,7 @@ class BookListFragment(flag:Int) : Fragment(){
     }
 
     private fun initData() {
+
 
 
     }

@@ -76,8 +76,9 @@
         <item>杂志</item>
     </array>
     <array name="manageList">
-        <item>已发布</item>
-        <item>当前漂流</item>
-        <item>已撤销</item>
+        <item>待售</item>
+        <item>可借</item>
+        <item>在阅</item>
+        <item>撤销</item>
     </array>
 </resources>

@@ -13,6 +13,7 @@ import android.widget.Toast
 import cn.odinaris.booktravel.R
 import cn.odinaris.booktravel.category.CategoryFragment
 import cn.odinaris.booktravel.home.HomeFragment
+import cn.odinaris.booktravel.home.ManageFragment
 import cn.odinaris.booktravel.publish.PublishActivity
 import cn.odinaris.booktravel.user.UserFragment
 import com.ashokvarma.bottomnavigation.BottomNavigationBar
@@ -23,7 +24,8 @@ class MainActivity : AppCompatActivity() {
     val fragmentsList = ArrayList<Fragment>()
     val home = HomeFragment()
     val category = CategoryFragment()
-    var user = UserFragment()
+    val manage = ManageFragment()
+    val user = UserFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +38,7 @@ class MainActivity : AppCompatActivity() {
     private fun initView() {
         fragmentsList.add(0, home)
         fragmentsList.add(1, category)
-        fragmentsList.add(2, home)
+        fragmentsList.add(2, manage)
         fragmentsList.add(3, user)
         bnb_navigator
                 .addItem(BottomNavigationItem(R.drawable.ic_home,"主页"))
@@ -115,10 +117,10 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                     3 -> {
-                        if (!home.isAdded) {
-                            transaction.add(R.id.ll_container, home).show(home)
+                        if (!manage.isAdded) {
+                            transaction.add(R.id.ll_container, manage).show(manage)
                         } else {
-                            transaction.show(home) }
+                            transaction.show(manage) }
                     }
                     4 -> {
                         if (!user.isAdded) {
