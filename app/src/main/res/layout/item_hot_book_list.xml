@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="160sp"
+    android:layout_margin="4sp"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/iv_hot_cover"
+        android:layout_width="100sp"
+        android:layout_height="0sp"
+        android:layout_weight="1"
+        android:padding="8sp"
+        android:scaleType="centerCrop"
+        />
+    <TextView
+        android:id="@+id/tv_book_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:textColor="#000"
+        android:textSize="14sp"
+        android:text="明日科技"
+        android:gravity="center"
+        android:layout_margin="4sp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20sp"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:textColor="#616161"
+            android:textSize="12sp"
+            android:text="推荐自"
+            android:gravity="center" />
+        <TextView
+            android:id="@+id/tv_book_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:textColor="#f7004f"
+            android:textSize="12sp"
+            android:text="计算机/网络"
+            android:gravity="center" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

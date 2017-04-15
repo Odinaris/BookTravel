@@ -3,24 +3,37 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    android:clipToPadding="true">
-    <include layout="@layout/item_search_box" />
-    <ScrollView
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/ll_search"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:id="@+id/ll_favorite_list"
-            android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:gravity="center"
+        android:background="#000000">
+        <ImageView
+            android:layout_width="48sp"
+            android:layout_height="48sp"
+            android:src="@drawable/ic_search"
+            android:padding="16sp"
+            android:tint="#ffffff" />
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <cn.odinaris.booktravel.view.FavoriteView
-                android:layout_width="match_parent"
-                android:layout_height="100sp"/>
-            <cn.odinaris.booktravel.view.FavoriteView
-                android:layout_width="match_parent"
-                android:layout_height="100sp"/>
-        </LinearLayout>
-    </ScrollView>
+            android:text="搜索您感兴趣的书籍"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_loading"
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="加载中..."/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_hot_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16sp"
+        android:visibility="gone"/>
 </LinearLayout>

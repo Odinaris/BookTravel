@@ -11,7 +11,7 @@
         android:pivotY="50%"
         android:filter="true"/>
     <alpha
-        android:fromAlpha="0.5"
+        android:fromAlpha="1"
         android:toAlpha="1"/>
 
 </set>

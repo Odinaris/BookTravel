@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import cn.bmob.v3.BmobQuery
 import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.FindListener
@@ -35,13 +36,14 @@ class BookListFragment(var flag:Int, val category:String) : Fragment(){
         val queryList = ArrayList<BmobQuery<BookInfo>>()
         val query = BmobQuery<BookInfo>()
         flagQuery.addWhereEqualTo("flag",flag)
-        categoryQuery.addWhereEqualTo("name",category)
+        categoryQuery.addWhereEqualTo("category",category)
         queryList.add(flagQuery)
         queryList.add(categoryQuery)
         query.and(queryList)
         query.findObjects(object: FindListener<BookInfo>(){
             override fun done(bookList: MutableList<BookInfo>?, e: BmobException?) {
                 if(e == null&&bookList!=null){
+                    Toast.makeText(context,category+"分类共有"+bookList.size.toString()+"本书",Toast.LENGTH_SHORT).show()
                     val books = bookList as ArrayList<BookInfo>
                     rv_book_list.adapter = BookListAdapter(flag,books,context)
                     rv_book_list.layoutManager = LinearLayoutManager(context)

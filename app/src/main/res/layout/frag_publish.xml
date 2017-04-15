@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <ImageView
+        android:id="@+id/iv_publish_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"/>
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:hint="请输入13位的图书ISBN编号"
+        android:textColorHint="#b6b6b6"
+        android:textColor="#fff"
+        android:inputType="number"
+        android:maxLength="13"
+        android:maxLines="1"
+        android:layout_margin="32sp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:layout_below="@+id/editText"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16sp"
+        android:layout_marginStart="32sp"
+        android:layout_marginEnd="32sp"
+        android:background="#383838"
+        android:text="下一步"
+        android:textSize="16sp"
+        android:textColor="#fff"/>
+
+
+    <requestFocus/>
+</RelativeLayout>
