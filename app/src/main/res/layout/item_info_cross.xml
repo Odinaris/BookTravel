@@ -48,7 +48,8 @@
                 android:layout_height="wrap_content"
                 android:text="189条评论"
                 android:textColor="#e11515"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:visibility="gone"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="60sp"

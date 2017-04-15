@@ -25,7 +25,6 @@
     </array>
     <!--人文社科-->
     <array name="cat_culture_social">
-
         <item>哲学宗教</item>
         <item>历史</item>
         <item>政治军事</item>
@@ -75,5 +74,10 @@
         <item>旅游</item>
         <item>美食</item>
         <item>杂志</item>
+    </array>
+    <array name="manageList">
+        <item>已发布</item>
+        <item>当前漂流</item>
+        <item>已撤销</item>
     </array>
 </resources>

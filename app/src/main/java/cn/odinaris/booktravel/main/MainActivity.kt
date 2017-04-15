@@ -1,6 +1,7 @@
 package cn.odinaris.booktravel.main
 
 import android.content.Intent
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -28,13 +29,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(R.layout.act_main)
-        initData()
-        setDefaultFragment()
         initView()
-    }
-
-    private fun initData() {
-
+        setDefaultFragment()
     }
 
     private fun initView() {
@@ -73,7 +69,13 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onTabUnselected(position: Int) { }
+            override fun onTabUnselected(position: Int) {
+                when(position){
+                    2 -> {
+                        ll_container.setBackgroundColor(Color.WHITE)
+                    }
+                }
+            }
 
             override fun onTabSelected(position: Int) {
                 val SFM = supportFragmentManager!!
@@ -94,6 +96,7 @@ class MainActivity : AppCompatActivity() {
                             transaction.show(category) }
                     }
                     2 -> {
+                        ll_container.setBackgroundColor(Color.BLACK)
                         val dialog = AlertDialog.Builder(this@MainActivity).create()
                         dialog.show()
                         val window = dialog.window

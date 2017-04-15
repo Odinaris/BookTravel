@@ -70,7 +70,8 @@
                 android:layout_height="wrap_content"
                 android:text="189条评论"
                 android:textColor="#e11515"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:visibility="gone"/>
 
         </LinearLayout>
         <LinearLayout
@@ -95,7 +96,6 @@
                 android:textColor="#686767"
                 android:textSize="14sp" />
         </LinearLayout>
-
     </LinearLayout>
 
 </android.support.v7.widget.CardView>

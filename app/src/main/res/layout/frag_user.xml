@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:leon="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -40,21 +39,91 @@
 
     </android.support.v7.widget.CardView>
 
-
-    <Button
-        android:id="@+id/btn_log_out"
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_tags"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="注销"/>
-
-    <Button
-        android:id="@+id/btn_pick_category"
+        android:layout_height="48sp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="48sp"
+                android:layout_height="48sp"
+                android:src="@drawable/ic_tags"
+                android:padding="8sp"
+                android:tint="#04ab4f"/>
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="#000"
+                android:text="标签管理"
+                android:gravity="center_vertical|start"/>
+            <ImageView
+                android:layout_width="48sp"
+                android:layout_height="48sp"
+                android:src="@drawable/ic_arrow_right"
+                android:padding="16sp"
+                android:tint="#515151"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_settings"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="选择标签"/>
-
-
-
-
-
+        android:layout_height="48sp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="48sp"
+                android:layout_height="48sp"
+                android:src="@drawable/ic_setting"
+                android:padding="12sp"
+                android:tint="#63686c"/>
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="#000"
+                android:text="系统设置"
+                android:gravity="center_vertical|start"/>
+            <ImageView
+                android:layout_width="48sp"
+                android:layout_height="48sp"
+                android:src="@drawable/ic_arrow_right"
+                android:padding="16sp"
+                android:tint="#515151"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_log_out"
+        android:layout_width="match_parent"
+        android:layout_height="48sp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="48sp"
+                android:layout_height="48sp"
+                android:src="@drawable/ic_log_out"
+                android:padding="12sp"
+                android:tint="#d1042a"/>
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="#000"
+                android:text="帐号注销"
+                android:gravity="center_vertical|start"/>
+            <ImageView
+                android:layout_width="48sp"
+                android:layout_height="48sp"
+                android:src="@drawable/ic_arrow_right"
+                android:padding="16sp"
+                android:tint="#515151"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
 </LinearLayout>

@@ -35,6 +35,8 @@ class SettingView: LinearLayout{
 
     private fun  initView(context: Context) {
         LayoutInflater.from(context).inflate(R.layout.item_setting,this,true)
+        mLeftIcon = findViewById(R.id.iv_icon_left) as ImageView
+        mRightIcon = findViewById(R.id.iv_icon_right) as ImageView
         mLeftContent = findViewById(R.id.tv_content_left) as TextView
         mRightContent = findViewById(R.id.tv_content_right) as TextView
         mLeftContent.setTextColor(mLeftContentColor)
@@ -42,6 +44,4 @@ class SettingView: LinearLayout{
 
     }
 
-    fun setLeftIcon(resId : Int){ mLeftIcon.setImageResource(resId) }
-    fun setRightIcon(resId : Int){ mRightIcon.setImageResource(resId) }
 }

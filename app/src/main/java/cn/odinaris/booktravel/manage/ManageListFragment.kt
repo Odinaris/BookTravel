@@ -1,4 +1,4 @@
-package cn.odinaris.booktravel.utils
+package cn.odinaris.booktravel.manage
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import cn.odinaris.booktravel.R
 
-class BookListFragment(flag:Int) : Fragment(){
+class ManageListFragment(flag:Int) : Fragment(){
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        val view : View = inflater!!.inflate(R.layout.frag_book_list,container,false)
+        val view : View = inflater!!.inflate(R.layout.frag_manage_list,container,false)
         return view
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?){

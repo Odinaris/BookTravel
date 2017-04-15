@@ -22,19 +22,21 @@ class UserFragment : Fragment(){
     override fun onViewCreated(view: View,savedInstanceState: Bundle?){
         super.onViewCreated(view, savedInstanceState)
 //        initData()//网络加载、数据请求操作
-//        initView()//适配器绑定等操作
+        initView()//适配器绑定等操作
         initClickListener()//监听器绑定操作
     }
 
+    private fun initView() {}
+
     private fun initClickListener() {
-        btn_log_out.setOnClickListener {
+        cv_tags.setOnClickListener {
+            startActivity(Intent(activity, PickActivity::class.java))
+        }
+        cv_log_out.setOnClickListener {
             if(BmobUser.getCurrentUser()!=null){
                 BmobUser.logOut()
                 startActivity(Intent(activity,LoginActivity::class.java))
             }
-        }
-        btn_pick_category.setOnClickListener {
-            startActivity(Intent(activity, PickActivity::class.java))
         }
     }
 
