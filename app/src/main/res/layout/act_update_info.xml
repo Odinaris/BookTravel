@@ -2,60 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="200sp"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:background="@color/gray_dark"
-        android:layout_marginBottom="16sp">
-        <cn.odinaris.booktravel.view.RoundImageView
-            android:id="@+id/riv_user_avatar"
-            android:layout_width="100sp"
-            android:layout_height="100sp"
-            android:scaleType="centerCrop"/>
-        <TextView
-            android:id="@+id/tv_username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="#ffffff"
-            android:gravity="center"
-            android:layout_margin="16sp"/>
-    </LinearLayout>
-    <android.support.v7.widget.CardView
-        android:id="@+id/cv_tags"
-        android:layout_width="match_parent"
-        android:layout_height="48sp"
-        android:clickable="true"
-        android:background="?android:attr/selectableItemBackground">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="48sp"
-                android:layout_height="48sp"
-                android:src="@drawable/ic_tags"
-                android:padding="8sp"
-                android:tint="#04ab4f"/>
-            <TextView
-                android:layout_width="0sp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:textSize="16sp"
-                android:textColor="#000"
-                android:text="@string/categories_management"
-                android:gravity="center_vertical|start"/>
-            <ImageView
-                android:layout_width="48sp"
-                android:layout_height="48sp"
-                android:src="@drawable/ic_arrow_right"
-                android:padding="16sp"
-                android:tint="@color/gray_dark"/>
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
+    android:layout_height="match_parent"
+    android:paddingTop="48sp">
     <android.support.v7.widget.CardView
         android:id="@+id/cv_avatar"
         android:layout_width="match_parent"
@@ -65,7 +13,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <cn.odinaris.booktravel.view.RoundImageView
-                android:id="@+id/riv_avatar"
+                android:id="@+id/riv_user_avatar"
                 android:layout_width="48sp"
                 android:layout_height="48sp"
                 android:scaleType="centerCrop"
@@ -88,7 +36,7 @@
         </LinearLayout>
     </android.support.v7.widget.CardView>
     <android.support.v7.widget.CardView
-        android:id="@+id/cv_mobile"
+        android:id="@+id/cv_username"
         android:layout_width="match_parent"
         android:layout_height="48sp">
         <LinearLayout
@@ -118,7 +66,7 @@
         </LinearLayout>
     </android.support.v7.widget.CardView>
     <android.support.v7.widget.CardView
-        android:id="@+id/cv_student_id"
+        android:id="@+id/cv_tags"
         android:layout_width="match_parent"
         android:layout_height="48sp"
         android:clickable="true"
@@ -132,7 +80,7 @@
                 android:layout_height="48sp"
                 android:src="@drawable/ic_student_id"
                 android:padding="8sp"
-                android:tint="#0a0ade"/>
+                android:tint="#04ab4f"/>
             <TextView
                 android:layout_width="0sp"
                 android:layout_height="match_parent"
@@ -140,6 +88,38 @@
                 android:textSize="16sp"
                 android:textColor="#000"
                 android:text="学号修改"
+                android:gravity="center_vertical|start"/>
+            <ImageView
+                android:layout_width="48sp"
+                android:layout_height="48sp"
+                android:src="@drawable/ic_arrow_right"
+                android:padding="16sp"
+                android:tint="@color/gray_dark"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_settings"
+        android:layout_width="match_parent"
+        android:layout_height="48sp"
+        android:clickable="true"
+        android:background="?android:attr/selectableItemBackground">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="48sp"
+                android:layout_height="48sp"
+                android:src="@drawable/ic_update_user"
+                android:padding="12sp"
+                android:tint="#013f96"/>
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:textColor="#000"
+                android:text="@string/updateUserInfo"
                 android:gravity="center_vertical|start"/>
             <ImageView
                 android:layout_width="48sp"
@@ -181,4 +161,5 @@
                 android:tint="@color/gray_dark"/>
         </LinearLayout>
     </android.support.v7.widget.CardView>
+
 </LinearLayout>

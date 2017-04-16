@@ -42,11 +42,13 @@ class RecommendFragment : Fragment(){
                     val categoryList = ArrayList<String>()
                     categories.mapTo(categoryList) { it.name }
                     hotQuery.addWhereContainedIn("category", categoryList)
-                    hotQuery.setLimit(10)
+                    hotQuery.setLimit(20)
                     hotQuery.findObjects(object : FindListener<BookInfo>(){
                         override fun done(books: MutableList<BookInfo>?, e1: BmobException?) {
                             if(e1==null){
-                                Toast.makeText(context,books!!.size.toString(),Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                        context,"为您最新推荐"+books!!.size.toString()+"本书",Toast.LENGTH_SHORT)
+                                        .show()
                                 val bookList = books as ArrayList<BookInfo>
                                 rv_hot_list.adapter = RecommendAdapter(bookList,context)
                                 rv_hot_list.layoutManager = GridLayoutManager(context,2)

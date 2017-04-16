@@ -30,7 +30,7 @@ class BookListAdapter(var flag:Int, var bookList:ArrayList<BookInfo>, val contex
             holder.newPrice.text = bookList[position].newPrice.toString()
             holder.price.text = "￥" + bookList[position].price.toString()
             holder.newPrice.paint.flags = Paint.STRIKE_THRU_TEXT_FLAG or Paint.ANTI_ALIAS_FLAG
-            if(bookList[position].oldDegree==10) {
+            if(bookList[position].oldDegree ==10f) {
                 holder.oldDegreeTips.visibility = View.GONE
                 holder.oldDegree.text = "全新"
                 holder.oldDegree.textSize = 24f

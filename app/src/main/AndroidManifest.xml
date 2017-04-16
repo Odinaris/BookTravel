@@ -36,7 +36,9 @@
         <activity android:name=".picker.PickActivity" />
         <activity android:name=".book_detail.BookListActivity" />
         <activity android:name=".publish.PublishActivity" />
-        <activity android:name=".book_detail.BookDetailActivity"></activity>
+        <activity android:name=".book_detail.BookDetailActivity" />
+        <activity android:name=".publish.PublishFormsActivity" />
+        <activity android:name=".user.UpdateInfoActivity"></activity>
     </application>
 
 </manifest>

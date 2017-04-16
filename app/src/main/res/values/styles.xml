@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="alertDialogTheme">@style/Theme.AppCompat.Light.Dialog.Alert.Self</item>
     </style>
 
     <style name="FullscreenTheme" parent="AppTheme">
@@ -31,6 +32,12 @@
         　　<item name="android:maxWidth">48dip</item>
         　　<item name="android:minHeight">48dip</item>
         　　<item name="android:maxHeight">48dip</item>
+    </style>
+
+    <style name="Theme.AppCompat.Light.Dialog.Alert.Self"
+        parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+        <!--修改AlertDialog按钮的颜色-->
+        <item name="colorAccent">#000000</item>
     </style>
 
 </resources>

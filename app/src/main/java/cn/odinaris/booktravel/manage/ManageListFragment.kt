@@ -27,6 +27,11 @@ class ManageListFragment(val flag:Int) : Fragment(){
         initData()//网络加载、数据请求操作
     }
 
+    override fun onResume() {
+        super.onResume()
+        initData()//网络加载、数据请求操作
+    }
+
     private fun initData() {
         val innerQuery = BmobQuery<UserInfo>()
         val userQuery = BmobQuery<BookInfo>()

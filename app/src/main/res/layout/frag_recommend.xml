@@ -38,7 +38,6 @@
             android:id="@+id/pb_loading"
             android:layout_width="match_parent"
             android:layout_height="72sp"
-            android:indeterminateDuration="1000"
             android:padding="16sp"
             style="@style/squareProgressBarStyle" />
         <android.support.v7.widget.RecyclerView

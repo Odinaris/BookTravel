@@ -18,7 +18,11 @@ class RecommendAdapter(var bookList:ArrayList<BookInfo>, val context: Context)
     : RecyclerView.Adapter<RecommendAdapter.ViewHolder>(){
 
     override fun onBindViewHolder(holder: RecommendAdapter.ViewHolder, position: Int) {
-        Glide.with(context).load(bookList[position].img1).into(holder.cover)
+        if (bookList[position].cover==""){
+            Glide.with(context).load(bookList[position].img1).into(holder.cover)
+        }else{
+            Glide.with(context).load(bookList[position].cover).into(holder.cover)
+        }
         holder.category.text = bookList[position].category
         holder.name.text = bookList[position].name
         holder.itemView.setOnClickListener {
