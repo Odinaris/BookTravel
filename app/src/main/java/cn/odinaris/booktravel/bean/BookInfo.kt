@@ -11,7 +11,7 @@ class BookInfo : BmobObject(){
     var author = ""//书籍作者
     var category = ""//书籍分类
     var press = ""//书籍出版商
-    var belongUser = UserInfo()//当前书籍拥有者
+    var belongUser: UserInfo? = null//当前书籍拥有者
     var followedUsers:BmobRelation = BmobRelation()//关注该书的用户列表
     var img1 = ""//用户上传的书籍实物图1
     var img2 = ""//用户上传的书籍实物图2

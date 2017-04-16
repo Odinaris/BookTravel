@@ -5,11 +5,13 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.Window
+import android.widget.Toast
 import cn.bmob.v3.BmobQuery
 import cn.bmob.v3.BmobRealTimeData
 import cn.bmob.v3.BmobUser
 import cn.bmob.v3.datatype.BmobRelation
 import cn.bmob.v3.exception.BmobException
+import cn.bmob.v3.listener.FindListener
 import cn.bmob.v3.listener.QueryListener
 import cn.bmob.v3.listener.UpdateListener
 import cn.odinaris.booktravel.R
@@ -71,6 +73,24 @@ class BookDetailActivity : AppCompatActivity() {
                     })
                 }
             }
+        }
+        tv_get.setOnClickListener {
+            val query = BmobQuery<BookInfo>()
+            query.include("belongUser")
+            query.getObject(objectId,object:QueryListener<BookInfo>(){
+                override fun done(book: BookInfo?, e: BmobException?) {
+                    if(e == null && book != null){
+                        if(book.belongUser!=null){
+                            val user:UserInfo = book.belongUser!!
+                            if(user.username!=null){
+                                Toast.makeText(applicationContext,user.mobilePhoneNumber,Toast.LENGTH_SHORT).show()
+                            }else{
+                                Toast.makeText(applicationContext,"当前用户未留联系方式!",Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    }
+                }
+            })
         }
     }
 
