@@ -10,14 +10,13 @@
         android:id="@+id/abl_bar"
         android:layout_width="match_parent"
         android:layout_height="260sp"
-        android:fitsSystemWindows="true"
         android:visibility="visible">
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/ctl_toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
+            app:contentScrim="@color/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
             <LinearLayout
                 android:id="@+id/ll_loadingView"
@@ -29,36 +28,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:layout_margin="8sp"
-                    android:text="加载中..."
-                    android:textColor="#fff"
-                    android:gravity="center"/>
             </LinearLayout>
             <ImageView
-                android:id="@+id/iv_book_cover"
+                android:id="@+id/iv_detail_cover"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 app:layout_collapseMode="parallax"
                 app:layout_collapseParallaxMultiplier="0.7"
-                android:fitsSystemWindows="true"
                 android:visibility="gone"/>
             <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar_carDetail"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin"
-                android:padding="0sp">
+                app:layout_collapseMode="pin">
                 <TextView
-                    android:id="@+id/tv_book_name"
+                    android:id="@+id/tv_detail_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="图书名称"
-                    android:textColor="#fff"
+                    android:textColor="#ffffff"
                     android:textSize="18sp"/>
             </android.support.v7.widget.Toolbar>
         </android.support.design.widget.CollapsingToolbarLayout>
@@ -84,44 +71,39 @@
                     android:orientation="vertical"
                     android:layout_margin="16sp">
                     <TextView
-                        android:id="@+id/tv_book_title"
+                        android:id="@+id/tv_detail_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="信息隐藏实验技术教程"
-                        android:textColor="#282828"
+                        android:textColor="@color/gray_dark"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         android:layout_marginBottom="8sp"/>
                     <TextView
-                        android:id="@+id/tv_book_author"
+                        android:id="@+id/tv_detail_author"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="作者:王丽娜"
-                        android:textColor="#282828"
+                        android:textColor="@color/gray_dark"
                         android:textSize="16sp"
                         android:layout_marginBottom="2sp"/>
                     <TextView
-                        android:id="@+id/tv_book_press"
+                        android:id="@+id/tv_detail_press"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="出版社:武汉大学出版社"
-                        android:textColor="#282828"
+                        android:textColor="@color/gray_dark"
                         android:textSize="16sp"
                         android:layout_marginBottom="2sp"/>
                     <TextView
-                        android:id="@+id/tv_book_isbn"
+                        android:id="@+id/tv_detail_isbn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="ISBN:123456789"
-                        android:textColor="#282828"
+                        android:textColor="@color/gray_dark"
                         android:textSize="16sp"
                         android:layout_marginBottom="2sp"/>
                     <TextView
-                        android:id="@+id/tv_book_category"
+                        android:id="@+id/tv_detail_category"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="所属分类:计算机/网络"
-                        android:textColor="#282828"
+                        android:textColor="@color/gray_dark"
                         android:textSize="16sp"
                         android:layout_marginBottom="2sp"/>
                 </LinearLayout>
@@ -142,37 +124,69 @@
                         android:orientation="horizontal"
                         android:gravity="bottom">
                         <TextView
-                            android:id="@+id/tv_book_price"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="售价:15元"
+                            android:text="售价:"
+                            android:textColor="@color/gray_dark"
+                            android:textSize="18sp"
+                            android:layout_marginBottom="2sp"/>
+                        <TextView
+                            android:id="@+id/tv_detail_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="15"
                             android:textColor="#cf0632"
                             android:textSize="18sp"
                             android:textStyle="bold"
                             android:layout_marginBottom="2sp"/>
-
                         <TextView
-                            android:id="@+id/tv_book_newPrice"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="2sp"
-                            android:text="新书售价:25元"
+                            android:text="新书售价:"
                             android:textColor="#616161"
                             android:textSize="14sp"
                             android:layout_marginStart="8sp"/>
                         <TextView
-                            android:layout_width="match_parent"
+                            android:id="@+id/tv_detail_newPrice"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="9成新"
-                            android:textStyle="bold"
-                            android:textSize="20sp"
-                            android:textColor="#cf0632"
-                            android:gravity="center"/>
+                            android:layout_marginBottom="2sp"
+                            android:text="25"
+                            android:textColor="#616161"
+                            android:textSize="14sp"
+                            android:layout_marginStart="8sp"/>
                     </LinearLayout>
-
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="新旧程度:"
+                            android:textSize="18sp"
+                            android:textColor="@color/gray_dark"
+                            android:gravity="end"/>
+                        <TextView
+                            android:id="@+id/tv_detail_old_degree"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="9"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:textColor="#cf0632"
+                            android:gravity="end"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="成新"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:textColor="#cf0632"
+                            android:gravity="end"/>
+                    </LinearLayout>
                 </LinearLayout>
-
-
             </android.support.v7.widget.CardView>
             <android.support.v7.widget.CardView
                 android:id="@+id/cv_crossInfo"
@@ -214,7 +228,6 @@
                         android:layout_height="400sp"
                         android:scaleType="centerCrop"/>
                 </android.support.v7.widget.CardView>
-
             </LinearLayout>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>

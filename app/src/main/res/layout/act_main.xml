@@ -4,27 +4,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
-
+    android:orientation="vertical">
     <LinearLayout
         android:id="@+id/ll_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical">
-
     </LinearLayout>
-
     <com.ashokvarma.bottomnavigation.BottomNavigationBar
         android:id="@+id/bnb_navigator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:bnbInactiveColor="#a7a7a7"
+        app:bnbInactiveColor="@color/gray_light"
         app:bnbMode="mode_fixed"
         app:bnbBackgroundStyle="background_style_ripple"
         app:bnbActiveColor="#ffffff"
         app:bnbBackgroundColor="#000000"/>
-
 </LinearLayout>

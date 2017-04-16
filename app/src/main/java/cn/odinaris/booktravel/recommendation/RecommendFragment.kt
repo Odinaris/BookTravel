@@ -1,4 +1,4 @@
-package cn.odinaris.booktravel.home
+package cn.odinaris.booktravel.recommendation
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -15,13 +15,13 @@ import cn.odinaris.booktravel.R
 import cn.odinaris.booktravel.bean.BookCategory
 import cn.odinaris.booktravel.bean.BookInfo
 import cn.odinaris.booktravel.bean.UserInfo
-import kotlinx.android.synthetic.main.frag_home.*
+import kotlinx.android.synthetic.main.frag_recommend.*
 import kotlin.collections.ArrayList
 
-class HomeFragment : Fragment(){
+class RecommendFragment : Fragment(){
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        val view : View = inflater!!.inflate(R.layout.frag_home,container,false)
+        val view : View = inflater!!.inflate(R.layout.frag_recommend,container,false)
         return view
     }
     override fun onViewCreated(view: View,savedInstanceState: Bundle?){
@@ -30,6 +30,7 @@ class HomeFragment : Fragment(){
     }
 
     private fun initData() {
+        //建立内部查询
         val innerQuery = BmobQuery<UserInfo>()
         innerQuery.addWhereEqualTo("objectId",BmobUser.getCurrentUser().objectId)
         val followedQuery = BmobQuery<BookCategory>()
@@ -40,7 +41,6 @@ class HomeFragment : Fragment(){
                     val hotQuery = BmobQuery<BookInfo>()
                     val categoryList = ArrayList<String>()
                     categories.mapTo(categoryList) { it.name }
-                    //Toast.makeText(context,categoryList.toString()+"种分类",Toast.LENGTH_SHORT).show()
                     hotQuery.addWhereContainedIn("category", categoryList)
                     hotQuery.setLimit(10)
                     hotQuery.findObjects(object : FindListener<BookInfo>(){
@@ -48,18 +48,15 @@ class HomeFragment : Fragment(){
                             if(e1==null){
                                 Toast.makeText(context,books!!.size.toString(),Toast.LENGTH_SHORT).show()
                                 val bookList = books as ArrayList<BookInfo>
-                                rv_hot_list.adapter = HotBooksAdapter(bookList,context)
+                                rv_hot_list.adapter = RecommendAdapter(bookList,context)
                                 rv_hot_list.layoutManager = GridLayoutManager(context,2)
-                                tv_loading.visibility = View.GONE
+                                pb_loading.visibility = View.GONE
                                 rv_hot_list.visibility = View.VISIBLE
-                            }else{
-                                Toast.makeText(context,e1.message,Toast.LENGTH_SHORT).show()
-                            }
+                            }else{ Toast.makeText(context,e1.message,Toast.LENGTH_SHORT).show() }
                         }
                     })
                 }
             }
         })
     }
-
 }

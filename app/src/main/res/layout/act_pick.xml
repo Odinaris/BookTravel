@@ -7,46 +7,59 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="cn.odinaris.booktravel.picker.PickActivity">
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#fff"
+        app:cardCornerRadius="2sp"
+        app:cardElevation="4sp"
+        android:clickable="true"
+        android:background="?android:attr/selectableItemBackground">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tips_picker"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:background="#ffffff"
+            android:padding="16sp"/>
+    </android.support.v7.widget.CardView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0sp"
         android:layout_weight="1"
-        android:orientation="vertical">
-        <android.support.v7.widget.CardView
+        android:orientation="vertical"
+        android:gravity="center">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_categories"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="#fff"
-            app:cardCornerRadius="0sp"
-            app:cardElevation="16sp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="请选择感兴趣的书籍分类"
-                android:textSize="16sp"
-                android:textColor="#ffffff"
-                android:background="#000000"
-                android:padding="16sp"/>
-            </android.support.v7.widget.CardView>
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rv_categories"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"/>
-            <ProgressBar
-                android:id="@+id/pb_loading"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="visible"
-                style="@style/MyProgressBar"/>
-        </LinearLayout>
-    <TextView
-        android:id="@+id/tv_submit"
+            android:visibility="gone"/>
+        <ProgressBar
+            android:id="@+id/pb_loading"
+            android:layout_width="72sp"
+            android:layout_height="72sp"
+            android:padding="16sp"
+            android:visibility="visible"
+            style="@style/squareProgressBarStyle"/>
+    </LinearLayout>
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="完成"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:background="#ffffff"
-        android:gravity="center"
-        android:padding="16sp"/>
+        app:cardBackgroundColor="#fff"
+        app:cardCornerRadius="2sp"
+        app:cardElevation="16sp"
+        android:clickable="true"
+        android:background="?android:attr/selectableItemBackground">
+        <TextView
+            android:id="@+id/tv_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tips_complete"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:background="#ffffff"
+            android:gravity="center"
+            android:padding="16sp" />
+    </android.support.v7.widget.CardView>
 </LinearLayout>

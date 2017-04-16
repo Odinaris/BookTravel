@@ -1,4 +1,4 @@
-package cn.odinaris.booktravel.home
+package cn.odinaris.booktravel.recommendation
 
 import android.os.Bundle
 import android.support.v4.app.Fragment

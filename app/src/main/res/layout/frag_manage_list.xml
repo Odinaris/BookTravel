@@ -4,26 +4,21 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <LinearLayout
         android:id="@+id/ll_loading"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:visibility="visible">
-        <TextView
+        <ProgressBar
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textSize="16sp"
-            android:text="加载数据中..."
-            android:textColor="#000"
-            android:gravity="center" />
+            android:layout_height="72sp"
+            android:padding="16sp"
+            style="@style/squareProgressBarStyle"/>
     </LinearLayout>
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_manage_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"/>
-
 </LinearLayout>

@@ -1,21 +1,16 @@
 package cn.odinaris.booktravel.main
 
-import android.content.Intent
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentTransaction
-import android.support.v7.app.AlertDialog
-import android.support.v7.widget.CardView
 import android.view.Window
 import android.view.WindowManager
-import android.widget.Toast
 import cn.odinaris.booktravel.R
 import cn.odinaris.booktravel.category.CategoryFragment
-import cn.odinaris.booktravel.home.HomeFragment
-import cn.odinaris.booktravel.home.ManageFragment
-import cn.odinaris.booktravel.publish.PublishActivity
+import cn.odinaris.booktravel.recommendation.RecommendFragment
+import cn.odinaris.booktravel.recommendation.ManageFragment
 import cn.odinaris.booktravel.publish.PublishFragment
 import cn.odinaris.booktravel.user.UserFragment
 import com.ashokvarma.bottomnavigation.BottomNavigationBar
@@ -24,7 +19,7 @@ import kotlinx.android.synthetic.main.act_main.*
 
 class MainActivity : AppCompatActivity() {
     val fragmentsList = ArrayList<Fragment>()
-    val home = HomeFragment()
+    val home = RecommendFragment()
     val category = CategoryFragment()
     val publish = PublishFragment()
     val manage = ManageFragment()
@@ -42,7 +37,6 @@ class MainActivity : AppCompatActivity() {
         initView()
         setDefaultFragment()
     }
-
     private fun initView() {
         fragmentsList.add(0, home)
         fragmentsList.add(1, category)

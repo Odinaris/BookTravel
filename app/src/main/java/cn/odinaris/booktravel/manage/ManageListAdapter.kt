@@ -65,7 +65,7 @@ class ManageListAdapter(var flag:Int, var bookList:ArrayList<BookInfo>, val cont
     override fun getItemViewType(position: Int): Int { return flag }
 
     class SaleViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
-        var name = itemView.findViewById(R.id.tv_book_name) as TextView
+        var name = itemView.findViewById(R.id.tv_sale_name) as TextView
         var author = itemView.findViewById(R.id.tv_author) as TextView
         var press = itemView.findViewById(R.id.tv_press) as TextView
         var thumbnail = itemView.findViewById(R.id.iv_thumbnail_book) as ImageView
@@ -76,7 +76,7 @@ class ManageListAdapter(var flag:Int, var bookList:ArrayList<BookInfo>, val cont
     }
 
     class CrossViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
-        var name = itemView.findViewById(R.id.tv_book_name) as TextView
+        var name = itemView.findViewById(R.id.tv_cross_name) as TextView
         var author = itemView.findViewById(R.id.tv_author) as TextView
         var press = itemView.findViewById(R.id.tv_press) as TextView
         var tripNum = itemView.findViewById(R.id.tv_tripNum) as TextView

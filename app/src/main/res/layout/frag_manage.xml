@@ -14,12 +14,13 @@
             android:id="@+id/tl_manage"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="#000000"
+            android:background="#ffffff"
             app:tabMode="fixed"
-            app:tabSelectedTextColor="#ffffff"
-            app:tabTextColor="#a6a6a6"
-            app:tabIndicatorColor="#ffffff"
-            android:layout_marginBottom="4sp" />
+            app:tabSelectedTextColor="#000000"
+            app:tabTextColor="@color/gray_light"
+            app:tabIndicatorColor="#000000"
+            android:layout_marginBottom="4sp"
+            />
         <android.support.v4.view.ViewPager
             android:id="@+id/vp_manage"
             android:layout_width="match_parent"

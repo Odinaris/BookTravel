@@ -3,18 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/tv_loading"
+    android:layout_height="match_parent"
+    android:gravity="center">
+    <ProgressBar
+        android:id="@+id/pb_loading"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="72sp"
+        android:padding="16sp"
         android:gravity="center"
-        android:text="加载中..."/>
-
+        style="@style/squareProgressBarStyle"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_book_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"/>
-
 </LinearLayout>

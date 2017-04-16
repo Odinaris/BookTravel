@@ -1,4 +1,4 @@
-package cn.odinaris.booktravel.home
+package cn.odinaris.booktravel.recommendation
 
 import android.content.Context
 import android.content.Intent
@@ -14,10 +14,10 @@ import cn.odinaris.booktravel.book_detail.BookDetailActivity
 import com.bumptech.glide.Glide
 
 
-class HotBooksAdapter(var bookList:ArrayList<BookInfo>, val context: Context)
-    : RecyclerView.Adapter<HotBooksAdapter.ViewHolder>(){
+class RecommendAdapter(var bookList:ArrayList<BookInfo>, val context: Context)
+    : RecyclerView.Adapter<RecommendAdapter.ViewHolder>(){
 
-    override fun onBindViewHolder(holder: HotBooksAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RecommendAdapter.ViewHolder, position: Int) {
         Glide.with(context).load(bookList[position].img1).into(holder.cover)
         holder.category.text = bookList[position].category
         holder.name.text = bookList[position].name
@@ -30,18 +30,13 @@ class HotBooksAdapter(var bookList:ArrayList<BookInfo>, val context: Context)
 
     override fun getItemCount(): Int { return bookList.size }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): HotBooksAdapter.ViewHolder {
-        return ViewHolder(
-                LayoutInflater.from(context).inflate(R.layout.item_hot_book_list,parent, false))
-
+    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecommendAdapter.ViewHolder {
+        val view = LayoutInflater.from(context).inflate(R.layout.item_recommend_books,parent, false)
+        return ViewHolder(view)
     }
-
-    override fun getItemViewType(position: Int): Int { return position }
-
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        var cover = itemView.findViewById(R.id.iv_hot_cover) as ImageView
-        var name = itemView.findViewById(R.id.tv_book_name) as TextView
-        var category = itemView.findViewById(R.id.tv_book_category) as TextView
+        var cover = itemView.findViewById(R.id.iv_recommend_cover) as ImageView
+        var name = itemView.findViewById(R.id.tv_recommend_name) as TextView
+        var category = itemView.findViewById(R.id.tv_recommend_category) as TextView
     }
-
 }

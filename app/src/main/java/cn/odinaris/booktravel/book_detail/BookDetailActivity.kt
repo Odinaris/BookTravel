@@ -39,8 +39,6 @@ class BookDetailActivity : AppCompatActivity() {
                 "已关注" -> {
                     val user = BmobUser.getCurrentUser<UserInfo>(UserInfo::class.java)
                     val book = BookInfo()
-                    //val relation = BmobRelation()
-                    //relation.add(user)
                     book.objectId = objectId
                     book.followedUsers.remove(user)
                     book.update(object:UpdateListener(){
@@ -53,8 +51,6 @@ class BookDetailActivity : AppCompatActivity() {
                 "关注" -> {
                     val user = BmobUser.getCurrentUser<UserInfo>(UserInfo::class.java)
                     val book = BookInfo()
-                    //val relation = BmobRelation()
-                    //relation.add(user)
                     book.objectId = objectId
                     book.followedUsers.add(user)
                     book.update(object:UpdateListener(){
@@ -66,7 +62,6 @@ class BookDetailActivity : AppCompatActivity() {
                 }
             }
         }
-
     }
 
     private fun initView() {
@@ -79,14 +74,15 @@ class BookDetailActivity : AppCompatActivity() {
         query.getObject(objectId,object: QueryListener<BookInfo>(){
             override fun done(book: BookInfo, e: BmobException?) {
                 if(e == null){
-                    tv_book_author.text = "作者:" + book.author
-                    tv_book_category.text = book.category
-                    tv_book_isbn.text = "ISBN:" + book.ISBN
-                    tv_book_name.text = book.name
-                    tv_book_title.text = book.name
-                    tv_book_press.text = "出版社:" + book.press
-                    tv_book_price.text = "￥"+book.price.toString()
-                    tv_book_newPrice.text = "￥"+book.newPrice.toString()
+                    tv_detail_author.text = "作者:" + book.author
+                    tv_detail_category.text = book.category
+                    tv_detail_isbn.text = "ISBN:" + book.ISBN
+                    tv_detail_name.text = book.name
+                    tv_detail_title.text = book.name
+                    tv_detail_press.text = "出版社:" + book.press
+                    tv_detail_price.text = "￥"+book.price.toString()
+                    tv_detail_newPrice.text = "￥"+book.newPrice.toString()
+                    tv_detail_old_degree.text = book.oldDegree.toString()
                     val tripNum = book.tripNum
                     tv_tripNum.text = "本书目前共有$tripNum 段旅程"
                     if(book.flag!=0 && book.flag!=3){
@@ -94,11 +90,11 @@ class BookDetailActivity : AppCompatActivity() {
                     }else{
                         cv_crossInfo.visibility = View.GONE
                     }
-                    Glide.with(applicationContext).load(book.img1).into(iv_book_cover)
+                    Glide.with(applicationContext).load(book.img1).into(iv_detail_cover)
                     Glide.with(applicationContext).load(book.img2).into(iv_img2)
                     Glide.with(applicationContext).load(book.img3).into(iv_img3)
                     ll_loadingView.visibility = View.GONE
-                    iv_book_cover.visibility = View.VISIBLE
+                    iv_detail_cover.visibility = View.VISIBLE
                     nsv_container.visibility = View.VISIBLE
                     ll_submit.visibility = View.VISIBLE
                 }

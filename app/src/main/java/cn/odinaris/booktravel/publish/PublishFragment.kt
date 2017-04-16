@@ -27,6 +27,7 @@ class PublishFragment : Fragment(){
     private fun initView() {
         bmp = ImageUtils.readBitMap(R.drawable.book_lamp2,context)
         iv_publish_background.setImageBitmap(bmp)
+
     }
 
     override fun onDestroy() {

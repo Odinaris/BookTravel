@@ -6,40 +6,39 @@
     android:gravity="center"
     android:focusable="true"
     android:focusableInTouchMode="true">
-
     <ImageView
         android:id="@+id/iv_publish_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"/>
-
+        android:scaleType="centerCrop"
+        android:src="@drawable/book_lamp"
+        android:contentDescription="@string/publish_cover" />
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/et_isbn"
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:gravity="center"
         android:layout_centerVertical="true"
         android:layout_alignParentStart="true"
-        android:hint="请输入13位的图书ISBN编号"
+        android:hint="@string/_13_isbn"
         android:textColorHint="#b6b6b6"
         android:textColor="#fff"
         android:inputType="number"
         android:maxLength="13"
         android:maxLines="1"
-        android:layout_margin="32sp"/>
+        android:layout_margin="32sp" />
     <Button
+        android:id="@+id/btn_next"
         android:layout_width="match_parent"
-        android:layout_height="60sp"
-        android:layout_below="@+id/editText"
+        android:layout_height="48sp"
+        android:layout_below="@+id/et_isbn"
         android:layout_alignParentStart="true"
         android:layout_marginTop="16sp"
         android:layout_marginStart="32sp"
         android:layout_marginEnd="32sp"
-        android:background="#383838"
-        android:text="下一步"
+        android:background="@drawable/my_button_style"
+        android:text="@string/next"
         android:textSize="16sp"
-        android:textColor="#fff"/>
-
-
+        android:textColor="#fff" />
     <requestFocus/>
 </RelativeLayout>

@@ -4,6 +4,9 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="2sp"
+    app:cardElevation="0sp"
+    android:clickable="true"
+    android:background="?android:attr/selectableItemBackground"
     android:layout_margin="4sp">
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,27 +26,27 @@
             android:orientation="vertical"
             android:gravity="center">
             <TextView
-                android:id="@+id/tv_book_name"
+                android:id="@+id/tv_sale_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="PHP从入门到精通(第三版)"
                 android:maxLines="2"
                 android:textColor="#000"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
             <TextView
                 android:id="@+id/tv_press"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="出版社:清华大学出版社"
                 android:textColor="#686868"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
             <TextView
                 android:id="@+id/tv_author"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="作者:明日科技"
                 android:textColor="#686868"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -88,7 +91,7 @@
                 android:gravity="center"
                 android:text="9.5"
                 android:textColor="#ea1e1e"
-                android:textSize="36sp" />
+                android:textSize="24sp" />
             <TextView
                 android:id="@+id/tv_tips_old_degree"
                 android:layout_width="wrap_content"

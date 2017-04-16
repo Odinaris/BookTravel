@@ -47,7 +47,7 @@ class BookListFragment(var flag:Int, val category:String) : Fragment(){
                     val books = bookList as ArrayList<BookInfo>
                     rv_book_list.adapter = BookListAdapter(flag,books,context)
                     rv_book_list.layoutManager = LinearLayoutManager(context)
-                    tv_loading.visibility = View.GONE
+                    pb_loading.visibility = View.GONE
                     rv_book_list.visibility = View.VISIBLE
                 }
             }

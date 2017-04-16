@@ -1,5 +1,16 @@
 <resources>
     <string name="app_name">书旅</string>
+    <string name="_13_isbn">请输入13位的图书ISBN编号</string>
+    <string name="next">下一步</string>
+    <string name="publish_cover">publish_cover</string>
+    <string name="username">UserName</string>
+    <string name="categories_management">分类管理</string>
+    <string name="settings">系统设置</string>
+    <string name="log_out">帐号注销</string>
+    <string name="tips_picker">请选择感兴趣的书籍分类</string>
+    <string name="tips_complete">完成</string>
+    <string name="assist_recommend_from">推荐自</string>
+    <string name="recommend_cover">recommend_cover</string>
     <array name="loginType">
         <item>登陆</item>
         <item>注册</item>
