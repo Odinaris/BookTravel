@@ -28,6 +28,10 @@ class RecommendFragment : Fragment(){
         super.onViewCreated(view, savedInstanceState)
         initData()//网络加载、数据请求操作
     }
+    override fun onResume() {
+        super.onResume()
+        initData()//网络加载、数据请求操作
+    }
 
     private fun initData() {
         //建立内部查询

@@ -22,12 +22,14 @@ import kotlinx.android.synthetic.main.act_book_detail.*
 class BookDetailActivity : AppCompatActivity() {
 
     var objectId = ""
+    var user = UserInfo()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(R.layout.act_book_detail)
         objectId = intent.getStringExtra("objectId")
+        user = BmobUser.getCurrentUser<UserInfo>(UserInfo::class.java)
         initView()
         initData()
         initClickListener()
@@ -37,26 +39,34 @@ class BookDetailActivity : AppCompatActivity() {
         tv_follow.setOnClickListener{
             when(tv_follow.text){
                 "已关注" -> {
-                    val user = BmobUser.getCurrentUser<UserInfo>(UserInfo::class.java)
-                    val book = BookInfo()
-                    book.objectId = objectId
-                    book.followedUsers.remove(user)
-                    book.update(object:UpdateListener(){
-                        override fun done(p0: BmobException?) {
-                            tv_follow.text = "关注"
-                            tv_follow.setTextColor(Color.BLACK)
+                    val query = BmobQuery<BookInfo>()
+                    query.getObject(objectId,object:QueryListener<BookInfo>(){
+                        override fun done(p0: BookInfo, p1: BmobException?) {
+                            val book = p0
+                            book.objectId = objectId
+                            book.followedUsers.remove(user)
+                            book.update(object:UpdateListener(){
+                                override fun done(p0: BmobException?) {
+                                    tv_follow.text = "关注"
+                                    tv_follow.setTextColor(Color.BLACK)
+                                }
+                            })
                         }
                     })
                 }
                 "关注" -> {
-                    val user = BmobUser.getCurrentUser<UserInfo>(UserInfo::class.java)
-                    val book = BookInfo()
-                    book.objectId = objectId
-                    book.followedUsers.add(user)
-                    book.update(object:UpdateListener(){
-                        override fun done(p0: BmobException?) {
-                            tv_follow.text = "已关注"
-                            tv_follow.setTextColor(Color.WHITE)
+                    val query = BmobQuery<BookInfo>()
+                    query.getObject(objectId,object:QueryListener<BookInfo>(){
+                        override fun done(p0: BookInfo, p1: BmobException?) {
+                            val book = p0
+                            book.objectId = objectId
+                            book.followedUsers.add(user)
+                            book.update(object:UpdateListener(){
+                                override fun done(p0: BmobException?) {
+                                    tv_follow.text = "已关注"
+                                    tv_follow.setTextColor(Color.WHITE)
+                                }
+                            })
                         }
                     })
                 }
@@ -90,7 +100,7 @@ class BookDetailActivity : AppCompatActivity() {
                     }else{
                         cv_crossInfo.visibility = View.GONE
                     }
-                    Glide.with(applicationContext).load(book.img1).into(iv_detail_cover)
+                    Glide.with(applicationContext).load(book.cover).into(iv_detail_cover)
                     Glide.with(applicationContext).load(book.img2).into(iv_img2)
                     Glide.with(applicationContext).load(book.img3).into(iv_img3)
                     ll_loadingView.visibility = View.GONE
