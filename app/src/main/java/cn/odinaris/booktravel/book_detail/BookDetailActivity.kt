@@ -115,11 +115,8 @@ class BookDetailActivity : AppCompatActivity() {
                     tv_detail_old_degree.text = book.oldDegree.toString()
                     val tripNum = book.tripNum
                     tv_tripNum.text = "本书目前共有$tripNum 段旅程"
-                    if(book.flag!=0 && book.flag!=3){
-                        cv_saleInfo.visibility = View.GONE
-                    }else{
-                        cv_crossInfo.visibility = View.GONE
-                    }
+                    if(book.flag!=0 && book.flag!=3){ cv_saleInfo.visibility = View.GONE }
+                    else{ cv_crossInfo.visibility = View.GONE }
                     Glide.with(applicationContext).load(book.cover).into(iv_detail_cover)
                     Glide.with(applicationContext).load(book.img2).into(iv_img2)
                     Glide.with(applicationContext).load(book.img3).into(iv_img3)
@@ -129,7 +126,6 @@ class BookDetailActivity : AppCompatActivity() {
                     ll_submit.visibility = View.VISIBLE
                 }
             }
-
         })
     }
 }
