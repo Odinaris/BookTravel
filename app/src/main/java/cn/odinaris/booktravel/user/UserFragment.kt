@@ -22,7 +22,7 @@ import cn.odinaris.booktravel.login.LoginActivity
 import cn.odinaris.booktravel.picker.PickActivity
 import cn.odinaris.booktravel.utils.PathGetter
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.frag_user.*
+import kotlinx.android.synthetic.main.user_main.*
 import java.io.File
 
 
@@ -31,7 +31,7 @@ class UserFragment : Fragment(){
     var user = UserInfo()
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        val view : View = inflater!!.inflate(R.layout.frag_user,container,false)
+        val view : View = inflater!!.inflate(R.layout.user_main,container,false)
         return view
     }
     override fun onViewCreated(view: View,savedInstanceState: Bundle?){

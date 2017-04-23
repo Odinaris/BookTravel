@@ -8,7 +8,7 @@ import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import cn.odinaris.booktravel.R
-import kotlinx.android.synthetic.main.item_category_detail.view.*
+import kotlinx.android.synthetic.main.category_item_book.view.*
 
 class CategoryDetailView:CardView{
     var mCategoryName = TextView(context)
@@ -24,7 +24,7 @@ class CategoryDetailView:CardView{
     }
 
     private fun initView(context: Context) {
-        LayoutInflater.from(context).inflate(R.layout.item_category_detail,this,true)
+        LayoutInflater.from(context).inflate(R.layout.category_item_book,this,true)
         mCategoryName = tv_category_detail_name
         mFollowNum = tv_followNum
         mBookNum = tv_bookNum

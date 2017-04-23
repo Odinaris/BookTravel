@@ -7,7 +7,7 @@ import android.view.Window
 import cn.odinaris.booktravel.R
 import cn.odinaris.booktravel.bean.DoubanInfo
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.act_publish_forms.*
+import kotlinx.android.synthetic.main.publish_bookinfo.*
 
 class PublishFormsActivity : AppCompatActivity() {
 
@@ -16,7 +16,7 @@ class PublishFormsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
-        setContentView(R.layout.act_publish_forms)
+        setContentView(R.layout.publish_bookinfo)
         initData()
         initView()
         initClickListener()

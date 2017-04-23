@@ -7,7 +7,7 @@ import android.view.Window
 import android.view.WindowManager
 import cn.odinaris.booktravel.R
 import cn.odinaris.booktravel.utils.ImageUtils
-import kotlinx.android.synthetic.main.act_login.*
+import kotlinx.android.synthetic.main.login_main.*
 
 class LoginActivity : AppCompatActivity() {
 
@@ -19,7 +19,7 @@ class LoginActivity : AppCompatActivity() {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
         //隐藏状态栏
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
-        setContentView(R.layout.act_login)
+        setContentView(R.layout.login_main)
         initData()
         initView()
     }

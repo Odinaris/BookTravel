@@ -32,7 +32,7 @@ class CategoryListAdapter(var categoryList:ArrayList<BookCategory>, val context:
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): CategoryListAdapter.ViewHolder {
             return ViewHolder(
-                    LayoutInflater.from(context).inflate(R.layout.item_category_detail, parent, false))
+                    LayoutInflater.from(context).inflate(R.layout.category_item_book, parent, false))
     }
 
     override fun getItemViewType(position: Int): Int { return 1 }

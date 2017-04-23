@@ -11,14 +11,14 @@ import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.FindListener
 import cn.odinaris.booktravel.R
 import cn.odinaris.booktravel.bean.BookCategory
-import kotlinx.android.synthetic.main.frag_category.*
+import kotlinx.android.synthetic.main.category_main.*
 
 class CategoryFragment : Fragment(){
 
     var categoryList = ArrayList<BookCategory>()
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        val view : View = inflater!!.inflate(R.layout.frag_category,container,false)
+        val view : View = inflater!!.inflate(R.layout.category_main,container,false)
         return view
     }
     override fun onViewCreated(view: View,savedInstanceState: Bundle?){

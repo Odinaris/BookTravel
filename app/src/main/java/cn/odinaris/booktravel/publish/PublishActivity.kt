@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 
 import cn.odinaris.booktravel.R
-import kotlinx.android.synthetic.main.act_publish.*
+import kotlinx.android.synthetic.main.publish_form.*
 import android.content.Intent
 import android.support.v7.app.AlertDialog
 import android.view.View
@@ -31,7 +31,7 @@ class PublishActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.act_publish)
+        setContentView(R.layout.publish_form)
         initData()
         initView()
         initClickListener()

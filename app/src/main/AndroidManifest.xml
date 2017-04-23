@@ -38,7 +38,6 @@
         <activity android:name=".publish.PublishActivity" />
         <activity android:name=".book_detail.BookDetailActivity" />
         <activity android:name=".publish.PublishFormsActivity" />
-        <activity android:name=".user.UpdateInfoActivity"></activity>
     </application>
 
 </manifest>

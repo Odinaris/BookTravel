@@ -25,7 +25,7 @@ class PickAdapter(var categoryList:ArrayList<BookCategory>, val context: Context
     override fun getItemCount(): Int { return categoryList.size }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
-            return ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_info_category, parent, false))
+            return ViewHolder(LayoutInflater.from(context).inflate(R.layout.utils_pick_category, parent, false))
 
     }
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {

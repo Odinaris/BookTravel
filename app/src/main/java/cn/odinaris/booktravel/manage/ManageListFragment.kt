@@ -15,11 +15,11 @@ import cn.odinaris.booktravel.R
 import cn.odinaris.booktravel.bean.BookInfo
 import cn.odinaris.booktravel.bean.UserInfo
 import cn.odinaris.booktravel.utils.ManageListAdapter
-import kotlinx.android.synthetic.main.frag_manage_list.*
+import kotlinx.android.synthetic.main.manage_list.*
 
 class ManageListFragment(val flag:Int) : Fragment(){
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        val view : View = inflater!!.inflate(R.layout.frag_manage_list,container,false)
+        val view : View = inflater!!.inflate(R.layout.manage_list,container,false)
         return view
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?){

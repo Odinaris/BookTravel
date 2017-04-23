@@ -17,7 +17,7 @@ class GridViewAdapter(var context: Context,var categoryList: List<String>) : Bas
     override fun getItemId(position: Int): Long { return position.toLong() }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val view = inflate(context, R.layout.item_category_detail, null)
+        val view = inflate(context, R.layout.category_item_book, null)
         val categoryName = view.findViewById(R.id.tv_category_detail_name) as TextView
         categoryName.text = categoryList[position]
         categoryName.text =view.height.toString()

@@ -1,4 +1,4 @@
-package cn.odinaris.booktravel.recommendation
+package cn.odinaris.booktravel.recommend
 
 import android.content.Context
 import android.content.Intent
@@ -35,7 +35,7 @@ class RecommendAdapter(var bookList:ArrayList<BookInfo>, val context: Context)
     override fun getItemCount(): Int { return bookList.size }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecommendAdapter.ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_recommend_books,parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.recommend_item_book,parent, false)
         return ViewHolder(view)
     }
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {

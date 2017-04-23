@@ -1,4 +1,4 @@
-package cn.odinaris.booktravel.recommendation
+package cn.odinaris.booktravel.recommend
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -15,13 +15,13 @@ import cn.odinaris.booktravel.R
 import cn.odinaris.booktravel.bean.BookCategory
 import cn.odinaris.booktravel.bean.BookInfo
 import cn.odinaris.booktravel.bean.UserInfo
-import kotlinx.android.synthetic.main.frag_recommend.*
+import kotlinx.android.synthetic.main.recommend_main.*
 import kotlin.collections.ArrayList
 
 class RecommendFragment : Fragment(){
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        val view : View = inflater!!.inflate(R.layout.frag_recommend,container,false)
+        val view : View = inflater!!.inflate(R.layout.recommend_main,container,false)
         return view
     }
     override fun onViewCreated(view: View,savedInstanceState: Bundle?){

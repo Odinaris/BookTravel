@@ -14,7 +14,7 @@ import cn.odinaris.booktravel.R
 import cn.odinaris.booktravel.bean.BookCategory
 import cn.odinaris.booktravel.bean.UserInfo
 
-import kotlinx.android.synthetic.main.act_pick.*
+import kotlinx.android.synthetic.main.utils_pick.*
 import me.odinaris.booktravel.utils.DisScrollLinearLayoutManager
 
 class PickActivity : AppCompatActivity(){
@@ -22,7 +22,7 @@ class PickActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
-        setContentView(R.layout.act_pick)
+        setContentView(R.layout.utils_pick)
         initView()
         initData()
         initClickListener()

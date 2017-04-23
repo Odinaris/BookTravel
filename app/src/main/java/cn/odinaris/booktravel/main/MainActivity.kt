@@ -7,13 +7,13 @@ import android.support.v4.app.FragmentTransaction
 import android.view.Window
 import cn.odinaris.booktravel.R
 import cn.odinaris.booktravel.category.CategoryFragment
-import cn.odinaris.booktravel.recommendation.RecommendFragment
-import cn.odinaris.booktravel.recommendation.ManageFragment
+import cn.odinaris.booktravel.recommend.RecommendFragment
+import cn.odinaris.booktravel.recommend.ManageFragment
 import cn.odinaris.booktravel.publish.PublishFragment
 import cn.odinaris.booktravel.user.UserFragment
 import com.ashokvarma.bottomnavigation.BottomNavigationBar
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
-import kotlinx.android.synthetic.main.act_main.*
+import kotlinx.android.synthetic.main.main_act.*
 
 class MainActivity : AppCompatActivity() {
     val fragmentsList = ArrayList<Fragment>()
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
-        setContentView(R.layout.act_main)
+        setContentView(R.layout.main_act)
         initView()
         setDefaultFragment()
     }

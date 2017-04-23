@@ -16,7 +16,7 @@ import cn.odinaris.booktravel.R
 import cn.odinaris.booktravel.bean.DoubanInfo
 import cn.odinaris.booktravel.utils.DoubanApi
 import cn.odinaris.booktravel.utils.ImageUtils
-import kotlinx.android.synthetic.main.frag_publish.*
+import kotlinx.android.synthetic.main.publish_main.*
 import okhttp3.ResponseBody
 import retrofit2.Retrofit
 import retrofit2.Call
@@ -33,7 +33,7 @@ class PublishFragment : Fragment(){
     var bmp: Bitmap? = null
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        val view : View = inflater!!.inflate(R.layout.frag_publish,container,false)
+        val view : View = inflater!!.inflate(R.layout.publish_main,container,false)
         return view
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?){

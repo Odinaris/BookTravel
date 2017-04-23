@@ -14,15 +14,17 @@
         android:padding="8sp"
         android:scaleType="centerCrop"
         android:contentDescription="@string/recommend_cover" />
+
     <TextView
         android:id="@+id/tv_recommend_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="4sp"
+        android:gravity="center"
         android:maxLines="2"
         android:textColor="#000"
-        android:textSize="14sp"
-        android:gravity="center"
-        android:layout_margin="4sp"/>
+        android:textSize="14sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="20sp"

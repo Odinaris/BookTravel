@@ -12,7 +12,7 @@ import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.SaveListener
 import cn.odinaris.booktravel.R
 import cn.odinaris.booktravel.bean.UserInfo
-import kotlinx.android.synthetic.main.frag_login_type.*
+import kotlinx.android.synthetic.main.login_type.*
 import cn.odinaris.booktravel.main.MainActivity
 import android.content.Intent
 import cn.odinaris.booktravel.picker.PickActivity
@@ -20,7 +20,7 @@ import cn.odinaris.booktravel.picker.PickActivity
 
 class LoginFragment(val type:String): Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater!!.inflate(R.layout.frag_login_type, container, false)
+        val view = inflater!!.inflate(R.layout.login_type, container, false)
         return view
     }
 

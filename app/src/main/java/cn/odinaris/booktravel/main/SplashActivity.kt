@@ -11,7 +11,7 @@ import cn.bmob.v3.BmobUser
 import cn.odinaris.booktravel.R
 import cn.odinaris.booktravel.login.LoginActivity
 import cn.odinaris.booktravel.utils.ImageUtils
-import kotlinx.android.synthetic.main.act_splash.*
+import kotlinx.android.synthetic.main.splash_main.*
 
 class SplashActivity : Activity() {
 
@@ -19,7 +19,7 @@ class SplashActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.act_splash)
+        setContentView(R.layout.splash_main)
         Bmob.initialize(this, "6590c04360b490a8625cebf8826457b3")
         initImage()
     }

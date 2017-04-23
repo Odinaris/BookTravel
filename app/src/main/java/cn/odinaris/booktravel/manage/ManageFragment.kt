@@ -1,4 +1,4 @@
-package cn.odinaris.booktravel.recommendation
+package cn.odinaris.booktravel.recommend
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -7,12 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import cn.odinaris.booktravel.R
 import cn.odinaris.booktravel.category.ManageTabAdapter
-import kotlinx.android.synthetic.main.frag_manage.*
+import kotlinx.android.synthetic.main.manage_main.*
 
 class ManageFragment : Fragment(){
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        val view : View = inflater!!.inflate(R.layout.frag_manage,container,false)
+        val view : View = inflater!!.inflate(R.layout.manage_main,container,false)
         return view
     }
     override fun onViewCreated(view: View,savedInstanceState: Bundle?){
