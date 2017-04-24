@@ -5,14 +5,14 @@ import android.os.Bundle
 import android.view.Window
 
 import cn.odinaris.booktravel.R
-import kotlinx.android.synthetic.main.act_book_list.*
+import kotlinx.android.synthetic.main.book_list.*
 
 class BookListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
-        setContentView(R.layout.act_book_list)
+        setContentView(R.layout.book_list)
         val categoryName = intent.getStringExtra("category")
         val titles = resources.getStringArray(R.array.bookType)
         val pageAdapter = BookTabAdapter(supportFragmentManager,categoryName,titles.toList())

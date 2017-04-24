@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         fragmentsList.add(3, publish)
         fragmentsList.add(4, user)
         bnb_navigator
-                .addItem(BottomNavigationItem(R.drawable.ic_home,"主页"))
+                .addItem(BottomNavigationItem(R.drawable.ic_recommend,"推荐"))
                 .addItem(BottomNavigationItem(R.drawable.ic_category,"分类"))
                 .addItem(BottomNavigationItem(R.drawable.ic_publish,"发布"))
                 .addItem(BottomNavigationItem(R.drawable.ic_manage,"管理"))

@@ -72,7 +72,11 @@ class PublishActivity : AppCompatActivity() {
                 newBookInfo.ISBN = doubanBookInfo.isbn13
                 newBookInfo.name = doubanBookInfo.title
                 newBookInfo.author = doubanBookInfo.author.toString()
-                newBookInfo.newPrice =doubanBookInfo.price.toFloat()
+                if(doubanBookInfo.price.contains("元")){
+                    newBookInfo.newPrice =doubanBookInfo.price.split("元")[0].toFloat()
+                }else{
+                    newBookInfo.newPrice =doubanBookInfo.price.toFloat()
+                }
                 newBookInfo.category = et_publish_category.text.toString()
                 newBookInfo.img1 = tv_publish_img1.text.toString()
                 newBookInfo.img2 = tv_publish_img2.text.toString()
@@ -81,7 +85,6 @@ class PublishActivity : AppCompatActivity() {
                 newBookInfo.summary = doubanBookInfo.summary
                 newBookInfo.cover = doubanBookInfo.image
                 newBookInfo.press = doubanBookInfo.publisher
-                newBookInfo.price = doubanBookInfo.price.toFloat()
                 newBookInfo.pages = doubanBookInfo.pages
                 if(type==0){
                     newBookInfo.price = et_book_price.text.toString().toFloat()

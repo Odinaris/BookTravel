@@ -18,7 +18,7 @@ import cn.odinaris.booktravel.R
 import cn.odinaris.booktravel.bean.BookInfo
 import cn.odinaris.booktravel.bean.UserInfo
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.act_book_detail.*
+import kotlinx.android.synthetic.main.book_douban.*
 
 
 class BookDetailActivity : AppCompatActivity() {
@@ -29,7 +29,7 @@ class BookDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
-        setContentView(R.layout.act_book_detail)
+        setContentView(R.layout.book_douban)
         objectId = intent.getStringExtra("objectId")
         user = BmobUser.getCurrentUser<UserInfo>(UserInfo::class.java)
         initView()
