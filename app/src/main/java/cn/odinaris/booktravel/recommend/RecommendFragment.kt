@@ -3,9 +3,7 @@ package cn.odinaris.booktravel.recommend
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
-import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.GridLayoutManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,11 +13,15 @@ import cn.bmob.v3.BmobUser
 import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.FindListener
 import cn.odinaris.booktravel.R
+import cn.odinaris.booktravel.bean.BannerList
 import cn.odinaris.booktravel.bean.BookCategory
 import cn.odinaris.booktravel.bean.BookInfo
 import cn.odinaris.booktravel.bean.UserInfo
+import cn.odinaris.booktravel.utils.DisScrollGridLayoutManager
+import cn.odinaris.booktravel.utils.GlideImageLoader
+import com.youth.banner.BannerConfig
+import com.youth.banner.Transformer
 import kotlinx.android.synthetic.main.recommend_main.*
-import java.util.*
 import kotlin.collections.ArrayList
 
 
@@ -30,11 +32,14 @@ class RecommendFragment : Fragment(){
             when(msg.what){
                 REFRESH_COMPLETE -> {
                     findFollowed()
+                    findBanners()
                     srl_refresh.isRefreshing = false
                 }
+
             }
         }
     }
+
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val view : View = inflater!!.inflate(R.layout.recommend_main,container,false)
@@ -49,7 +54,11 @@ class RecommendFragment : Fragment(){
     }
 
     private fun initView() {
-        srl_refresh.setOnRefreshListener { handler.sendEmptyMessageDelayed(REFRESH_COMPLETE, 2000) }
+        srl_refresh.setOnRefreshListener {
+            handler.sendEmptyMessageDelayed(REFRESH_COMPLETE, 2000)
+
+        }
+
     }
 
     private fun initData() {
@@ -74,7 +83,7 @@ class RecommendFragment : Fragment(){
                     val categoryList = ArrayList<String>()
                     val flagType = ArrayList<Int>()
                     flagType.add(0)
-                    flagType.add(3)
+                    flagType.add(1)
                     categories.mapTo(categoryList) { it.name }
                     //设置只显示flag = 0 or 4的书籍
                     categoryQuery.addWhereContainedIn("category", categoryList)
@@ -86,8 +95,10 @@ class RecommendFragment : Fragment(){
                         override fun done(books: MutableList<BookInfo>?, e1: BmobException?) {
                             if(e1==null){
                                 val bookList = books as ArrayList<BookInfo>
+                                val manager = DisScrollGridLayoutManager(context,2)
+                                manager.isScrollEnabled = false
                                 rv_hot_list.adapter = RecommendAdapter(bookList,context)
-                                rv_hot_list.layoutManager = GridLayoutManager(context,2)
+                                rv_hot_list.layoutManager = manager
                                 rv_hot_list.visibility = View.VISIBLE
                             }else{ Toast.makeText(context,e1.message,Toast.LENGTH_SHORT).show() }
                         }
@@ -95,5 +106,48 @@ class RecommendFragment : Fragment(){
                 }
             }
         })
+    }
+    //查找Banner信息
+    private fun findBanners() {
+        val bannerQuery = BmobQuery<BannerList>()
+        bannerQuery.addWhereNotEqualTo("title","").order("-UpdatedAt").setLimit(3)
+        bannerQuery.findObjects(object:FindListener<BannerList>(){
+            override fun done(banners: MutableList<BannerList>?, e: BmobException?) {
+                if(e==null){
+                    val images = ArrayList<String>()
+                    val titles = ArrayList<String>()
+                    //var links = ArrayList<String>()
+                    banners!!.mapTo(images){it.imageUrl}
+                    banners.mapTo(titles){it.title}
+                    //banners.mapTo(images){it.linkUrl}
+                    banner.setImageLoader(GlideImageLoader)
+                            .setImages(images)
+                            .setBannerTitles(titles)
+                            .setBannerAnimation(Transformer.DepthPage)
+                            .setDelayTime(2000)
+                            .setIndicatorGravity(BannerConfig.RIGHT)
+                            .setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE_INSIDE)
+                            .isAutoPlay(true)
+                            .start()
+                }else{
+                    Toast.makeText(context,e.message,Toast.LENGTH_SHORT).show()
+                }
+            }
+
+        })
+
+    }
+
+
+    override fun onStart() {
+        super.onStart()
+        //开始轮播
+        banner.startAutoPlay()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        //结束轮播
+        banner.stopAutoPlay()
     }
 }
