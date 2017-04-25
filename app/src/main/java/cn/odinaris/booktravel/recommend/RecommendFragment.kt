@@ -22,6 +22,7 @@ import cn.odinaris.booktravel.utils.GlideImageLoader
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import kotlinx.android.synthetic.main.recommend_main.*
+import me.odinaris.booktravel.utils.DisScrollLinearLayoutManager
 import kotlin.collections.ArrayList
 
 
@@ -35,7 +36,6 @@ class RecommendFragment : Fragment(){
                     findBanners()
                     srl_refresh.isRefreshing = false
                 }
-
             }
         }
     }
@@ -85,7 +85,7 @@ class RecommendFragment : Fragment(){
                     flagType.add(0)
                     flagType.add(1)
                     categories.mapTo(categoryList) { it.name }
-                    //设置只显示flag = 0 or 4的书籍
+                    //设置只显示flag = 0 or 1的书籍
                     categoryQuery.addWhereContainedIn("category", categoryList)
                     flagQuery.addWhereContainedIn("flag", flagType)
                     queryAnd.add(categoryQuery)
@@ -95,9 +95,9 @@ class RecommendFragment : Fragment(){
                         override fun done(books: MutableList<BookInfo>?, e1: BmobException?) {
                             if(e1==null){
                                 val bookList = books as ArrayList<BookInfo>
-                                val manager = DisScrollGridLayoutManager(context,2)
+                                val manager = DisScrollLinearLayoutManager(context)
                                 manager.isScrollEnabled = false
-                                rv_hot_list.adapter = RecommendAdapter(bookList,context)
+                                rv_hot_list.adapter = RecommendAdapter(bookList, categoryList,context)
                                 rv_hot_list.layoutManager = manager
                                 rv_hot_list.visibility = View.VISIBLE
                             }else{ Toast.makeText(context,e1.message,Toast.LENGTH_SHORT).show() }
@@ -129,6 +129,9 @@ class RecommendFragment : Fragment(){
                             .setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE_INSIDE)
                             .isAutoPlay(true)
                             .start()
+//                    banner.setOnBannerListener {
+//
+//                    }
                 }else{
                     Toast.makeText(context,e.message,Toast.LENGTH_SHORT).show()
                 }

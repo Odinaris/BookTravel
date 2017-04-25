@@ -1,7 +1,6 @@
 package cn.odinaris.booktravel.utils
 
 import android.content.Context
-import android.content.DialogInterface
 import android.graphics.Paint
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.RecyclerView
@@ -21,14 +20,14 @@ class ManageListAdapter(var flag:Int, var bookList:ArrayList<BookInfo>, val cont
     : RecyclerView.Adapter< RecyclerView.ViewHolder>(){
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
+        val manageBook = bookList[position]
+        val cover = if(manageBook.cover!="") manageBook.cover else manageBook.img1
         holder!!.itemView.setOnClickListener {
             val dialog = AlertDialog.Builder(context)
-            var manageBook = BookInfo()
             when(flag){
                 0 -> { dialog.setMessage("取消发售?")
                             .setNegativeButton("否",null)
                             .setPositiveButton("是", { dialog, which ->
-                                manageBook = bookList[position]
                                 manageBook.flag = 3
                                 manageBook.update(bookList[position].objectId,object:UpdateListener(){
                                     override fun done(p0: BmobException?) {
@@ -43,7 +42,6 @@ class ManageListAdapter(var flag:Int, var bookList:ArrayList<BookInfo>, val cont
                 1 -> { dialog.setMessage("暂停漂流?")
                             .setNegativeButton("否",null)
                             .setPositiveButton("是", { dialog, which ->
-                                manageBook = bookList[position]
                                 manageBook.flag = 2
                                 manageBook.update(bookList[position].objectId,object:UpdateListener(){
                                     override fun done(p0: BmobException?) {
@@ -57,7 +55,6 @@ class ManageListAdapter(var flag:Int, var bookList:ArrayList<BookInfo>, val cont
                 2 -> { dialog.setMessage("开始漂流?")
                         .setNegativeButton("否",null)
                         .setPositiveButton("是", { dialog, which ->
-                            manageBook = bookList[position]
                             manageBook.flag = 1
                             manageBook.update(bookList[position].objectId,object:UpdateListener(){
                                 override fun done(p0: BmobException?) {
@@ -71,7 +68,6 @@ class ManageListAdapter(var flag:Int, var bookList:ArrayList<BookInfo>, val cont
                 3 -> { dialog.setMessage("重新发售?")
                         .setNegativeButton("否",null)
                         .setPositiveButton("是", { dialog, which ->
-                            manageBook = bookList[position]
                             manageBook.flag = 0
                             manageBook.update(bookList[position].objectId,object:UpdateListener(){
                                 override fun done(p0: BmobException?) {
@@ -85,27 +81,31 @@ class ManageListAdapter(var flag:Int, var bookList:ArrayList<BookInfo>, val cont
             }
         }
         if(holder is SaleViewHolder){
-            holder.name.text = bookList[position].name
-            holder.author.text = "作者:" + bookList[position].author
-            holder.press.text = "出版社:" + bookList[position].press
-            holder.newPrice.text = bookList[position].newPrice.toString()
-            holder.price.text = "￥" + bookList[position].price.toString()
+            holder.categoryTips.text = "分类"
+            holder.category.text = manageBook.category
+            holder.name.text = manageBook.name
+            holder.author.text = "作者:" + manageBook.author
+            holder.press.text = "出版社:" + manageBook.press
+            holder.newPrice.text = manageBook.newPrice.toString()
+            holder.price.text = "￥" + manageBook.price.toString()
             holder.newPrice.paint.flags = Paint.STRIKE_THRU_TEXT_FLAG or Paint.ANTI_ALIAS_FLAG
             if(bookList[position].oldDegree==10f) {
                 holder.oldDegreeTips.visibility = View.GONE
                 holder.oldDegree.text = "全新"
                 holder.oldDegree.textSize = 24f
             }else{
-                holder.oldDegree.text = bookList[position].oldDegree.toString()
+                holder.oldDegree.text = manageBook.oldDegree.toString()
             }
-            Glide.with(context).load(bookList[position].img1).into(holder.thumbnail)
+            Glide.with(context).load(cover).into(holder.thumbnail)
         }
         else if(holder is CrossViewHolder){
-            holder.name.text = bookList[position].name
-            holder.author.text = "作者:" + bookList[position].author
-            holder.press.text = "出版社:" + bookList[position].press
-            holder.tripNum.text = bookList[position].tripNum.toString()
-            Glide.with(context).load(bookList[position].img1).into(holder.thumbnail)
+            holder.categoryTips.text = "分类"
+            holder.category.text = manageBook.category
+            holder.name.text = manageBook.name
+            holder.author.text = "作者:" + manageBook.author
+            holder.press.text = "出版社:" + manageBook.press
+            holder.tripNum.text = manageBook.tripNum.toString()
+            Glide.with(context).load(cover).into(holder.thumbnail)
         }
     }
 
@@ -114,15 +114,15 @@ class ManageListAdapter(var flag:Int, var bookList:ArrayList<BookInfo>, val cont
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int):  RecyclerView.ViewHolder {
         when(viewType){
             0->{ return SaleViewHolder(
-                    LayoutInflater.from(context).inflate(R.layout.manage_item_sale, parent, false)) }
+                    LayoutInflater.from(context).inflate(R.layout.book_item_sale, parent, false)) }
             1->{ return CrossViewHolder(
-                    LayoutInflater.from(context).inflate(R.layout.manage_item_cross, parent, false)) }
+                    LayoutInflater.from(context).inflate(R.layout.book_item_cross, parent, false)) }
             2->{ return CrossViewHolder(
-                    LayoutInflater.from(context).inflate(R.layout.manage_item_cross, parent, false)) }
+                    LayoutInflater.from(context).inflate(R.layout.book_item_cross, parent, false)) }
             3->{ return SaleViewHolder(
-                    LayoutInflater.from(context).inflate(R.layout.manage_item_sale, parent, false)) }
+                    LayoutInflater.from(context).inflate(R.layout.book_item_sale, parent, false)) }
             else->{
-                return SaleViewHolder(LayoutInflater.from(context).inflate(R.layout.manage_item_sale, parent, false))
+                return SaleViewHolder(LayoutInflater.from(context).inflate(R.layout.book_item_sale, parent, false))
             }
         }
     }
@@ -130,6 +130,7 @@ class ManageListAdapter(var flag:Int, var bookList:ArrayList<BookInfo>, val cont
     override fun getItemViewType(position: Int): Int { return flag }
 
     class SaleViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
+        var categoryTips = itemView.findViewById(R.id.tv_tips_category) as TextView
         var name = itemView.findViewById(R.id.tv_sale_name) as TextView
         var author = itemView.findViewById(R.id.tv_author) as TextView
         var press = itemView.findViewById(R.id.tv_press) as TextView
@@ -138,13 +139,16 @@ class ManageListAdapter(var flag:Int, var bookList:ArrayList<BookInfo>, val cont
         var newPrice = itemView.findViewById(R.id.tv_new_price) as TextView
         var oldDegree = itemView.findViewById(R.id.tv_old_degree) as TextView
         var oldDegreeTips = itemView.findViewById(R.id.tv_tips_old_degree) as TextView
+        var category = itemView.findViewById(R.id.tv_category) as TextView
     }
 
     class CrossViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
+        var categoryTips = itemView.findViewById(R.id.tv_tips_category) as TextView
         var name = itemView.findViewById(R.id.tv_cross_name) as TextView
         var author = itemView.findViewById(R.id.tv_author) as TextView
         var press = itemView.findViewById(R.id.tv_press) as TextView
         var tripNum = itemView.findViewById(R.id.tv_tripNum) as TextView
         var thumbnail = itemView.findViewById(R.id.iv_thumbnail_book) as ImageView
+        var category = itemView.findViewById(R.id.tv_category) as TextView
     }
 }

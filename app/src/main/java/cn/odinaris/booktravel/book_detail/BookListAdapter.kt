@@ -53,12 +53,12 @@ class BookListAdapter(var flag:Int, var bookList:ArrayList<BookInfo>, val contex
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
         when(viewType){
             0->{ return SaleViewHolder(
-                    LayoutInflater.from(context).inflate(R.layout.manage_item_sale, parent, false)) }
+                    LayoutInflater.from(context).inflate(R.layout.book_item_sale, parent, false)) }
             1->{ return CrossViewHolder(
-                    LayoutInflater.from(context).inflate(R.layout.manage_item_cross, parent, false)) }
+                    LayoutInflater.from(context).inflate(R.layout.book_item_cross, parent, false)) }
             else->{
                 return SaleViewHolder(
-                        LayoutInflater.from(context).inflate(R.layout.manage_item_sale, parent, false))
+                        LayoutInflater.from(context).inflate(R.layout.book_item_sale, parent, false))
             }
         }
     }
