@@ -35,10 +35,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".picker.PickActivity" />
-        <activity android:name=".book_detail.BookListActivity" />
+        <activity android:name=".category.BookListActivity" />
         <activity android:name=".publish.PublishActivity" />
-        <activity android:name=".book_detail.BookDetailActivity" />
+        <activity android:name=".bookinfo.BookDetailActivity" />
         <activity android:name=".publish.PublishFormsActivity" />
+        <activity android:name=".search.SearchActivity" />
+        <activity android:name=".recommend.BannerDetailActivity"></activity>
     </application>
 
 </manifest>

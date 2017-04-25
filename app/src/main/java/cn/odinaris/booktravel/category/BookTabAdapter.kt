@@ -1,4 +1,4 @@
-package cn.odinaris.booktravel.book_detail
+package cn.odinaris.booktravel.category
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager

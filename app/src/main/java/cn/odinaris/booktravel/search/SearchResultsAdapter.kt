@@ -15,7 +15,7 @@ import cn.odinaris.booktravel.bookinfo.BookDetailActivity
 import com.bumptech.glide.Glide
 
 
-class RecommendAdapter(var bookList:ArrayList<BookInfo>, var context: Context)
+class SearchRrsultsAdapter(var bookList:ArrayList<BookInfo>, var context: Context)
     : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
     override fun getItemViewType(position: Int): Int { return bookList[position].flag }
@@ -24,6 +24,7 @@ class RecommendAdapter(var bookList:ArrayList<BookInfo>, var context: Context)
         holder!!.itemView.setOnClickListener {
             val intent = Intent(context, BookDetailActivity::class.java)
             intent.putExtra("objectId",bookList[position].objectId)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             context.startActivity(intent)
         }
         val cover = if(bookList[position].cover!="") bookList[position].cover else bookList[position].img1

@@ -1,4 +1,4 @@
-package cn.odinaris.booktravel.book_detail
+package cn.odinaris.booktravel.category
 
 import android.content.Context
 import android.content.Intent
@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.*
 import cn.odinaris.booktravel.R
 import cn.odinaris.booktravel.bean.BookInfo
+import cn.odinaris.booktravel.bookinfo.BookDetailActivity
 import com.bumptech.glide.Glide
 
 
@@ -19,11 +20,13 @@ class BookListAdapter(var flag:Int, var bookList:ArrayList<BookInfo>, val contex
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
         holder!!.itemView.setOnClickListener {
-            val intent = Intent(context,BookDetailActivity::class.java)
+            val intent = Intent(context, BookDetailActivity::class.java)
             intent.putExtra("objectId",bookList[position].objectId)
             context.startActivity(intent)
         }
         if(holder is SaleViewHolder){
+            holder.category.text = bookList[position].category
+            holder.tipsCategory.text = "分类:"
             holder.name.text = bookList[position].name
             holder.author.text = "作者:" + bookList[position].author
             holder.press.text = "出版社:" + bookList[position].press
@@ -40,6 +43,8 @@ class BookListAdapter(var flag:Int, var bookList:ArrayList<BookInfo>, val contex
             Glide.with(context).load(bookList[position].img1).into(holder.thumbnail)
         }
         else if(holder is CrossViewHolder){
+            holder.category.text = bookList[position].category
+            holder.tipsCategory.text = "分类:"
             holder.name.text = bookList[position].name
             holder.author.text = "作者:" + bookList[position].author
             holder.press.text = "出版社:" + bookList[position].press
@@ -56,9 +61,8 @@ class BookListAdapter(var flag:Int, var bookList:ArrayList<BookInfo>, val contex
                     LayoutInflater.from(context).inflate(R.layout.book_item_sale, parent, false)) }
             1->{ return CrossViewHolder(
                     LayoutInflater.from(context).inflate(R.layout.book_item_cross, parent, false)) }
-            else->{
-                return SaleViewHolder(
-                        LayoutInflater.from(context).inflate(R.layout.book_item_sale, parent, false))
+            else -> { return SaleViewHolder(
+                    LayoutInflater.from(context).inflate(R.layout.book_item_sale, parent, false))
             }
         }
     }
@@ -74,6 +78,8 @@ class BookListAdapter(var flag:Int, var bookList:ArrayList<BookInfo>, val contex
         var newPrice = itemView.findViewById(R.id.tv_new_price) as TextView
         var oldDegree = itemView.findViewById(R.id.tv_old_degree) as TextView
         var oldDegreeTips = itemView.findViewById(R.id.tv_tips_old_degree) as TextView
+        var tipsCategory = itemView.findViewById(R.id.tv_tips_category) as TextView
+        var category = itemView.findViewById(R.id.tv_category) as TextView
     }
 
     class CrossViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -82,5 +88,7 @@ class BookListAdapter(var flag:Int, var bookList:ArrayList<BookInfo>, val contex
         var press = itemView.findViewById(R.id.tv_press) as TextView
         var tripNum = itemView.findViewById(R.id.tv_tripNum) as TextView
         var thumbnail = itemView.findViewById(R.id.iv_thumbnail_book) as ImageView
+        var tipsCategory = itemView.findViewById(R.id.tv_tips_category) as TextView
+        var category = itemView.findViewById(R.id.tv_category) as TextView
     }
 }

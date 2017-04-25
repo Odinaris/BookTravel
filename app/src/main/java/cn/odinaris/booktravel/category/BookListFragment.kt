@@ -1,4 +1,4 @@
-package cn.odinaris.booktravel.book_detail
+package cn.odinaris.booktravel.category
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -22,15 +22,9 @@ class BookListFragment(var flag:Int, val category:String) : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?){
         super.onViewCreated(view, savedInstanceState)
         initData()//网络加载、数据请求操作
-        initView()//适配器绑定等操作
-    }
-
-    private fun initView() {
-
     }
 
     private fun initData() {
-
         val flagQuery = BmobQuery<BookInfo>()
         val categoryQuery = BmobQuery<BookInfo>()
         val queryList = ArrayList<BmobQuery<BookInfo>>()
@@ -39,19 +33,17 @@ class BookListFragment(var flag:Int, val category:String) : Fragment(){
         categoryQuery.addWhereEqualTo("category",category)
         queryList.add(flagQuery)
         queryList.add(categoryQuery)
-        query.and(queryList)
+        query.and(queryList).setLimit(10)
         query.findObjects(object: FindListener<BookInfo>(){
             override fun done(bookList: MutableList<BookInfo>?, e: BmobException?) {
                 if(e == null&&bookList!=null){
-                    Toast.makeText(context,category+"分类共有"+bookList.size.toString()+"本书",Toast.LENGTH_SHORT).show()
                     val books = bookList as ArrayList<BookInfo>
                     rv_book_list.adapter = BookListAdapter(flag,books,context)
                     rv_book_list.layoutManager = LinearLayoutManager(context)
-                    pb_loading.visibility = View.GONE
+                    ll_loading.visibility = View.GONE
                     rv_book_list.visibility = View.VISIBLE
                 }
             }
         })
-
     }
 }

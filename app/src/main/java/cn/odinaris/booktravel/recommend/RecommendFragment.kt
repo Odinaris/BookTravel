@@ -1,9 +1,9 @@
 package cn.odinaris.booktravel.recommend
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
-import android.support.v7.widget.GridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,14 +17,13 @@ import cn.odinaris.booktravel.bean.BannerList
 import cn.odinaris.booktravel.bean.BookCategory
 import cn.odinaris.booktravel.bean.BookInfo
 import cn.odinaris.booktravel.bean.UserInfo
-import cn.odinaris.booktravel.utils.DisScrollGridLayoutManager
+import cn.odinaris.booktravel.search.SearchActivity
 import cn.odinaris.booktravel.utils.GlideImageLoader
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import kotlinx.android.synthetic.main.recommend_main.*
 import me.odinaris.booktravel.utils.DisScrollLinearLayoutManager
 import kotlin.collections.ArrayList
-
 
 class RecommendFragment : Fragment(){
     val REFRESH_COMPLETE = 0
@@ -39,8 +38,6 @@ class RecommendFragment : Fragment(){
             }
         }
     }
-
-
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val view : View = inflater!!.inflate(R.layout.recommend_main,container,false)
         return view
@@ -49,23 +46,16 @@ class RecommendFragment : Fragment(){
         super.onViewCreated(view, savedInstanceState)
         initData()//网络加载、数据请求操作
         initView()
-
-
     }
-
     private fun initView() {
-        srl_refresh.setOnRefreshListener {
-            handler.sendEmptyMessageDelayed(REFRESH_COMPLETE, 2000)
-
-        }
+        srl_refresh.setOnRefreshListener { handler.sendEmptyMessageDelayed(REFRESH_COMPLETE, 2000) }
+        ll_search.setOnClickListener { startActivity(Intent(activity,SearchActivity::class.java)) }
 
     }
-
     private fun initData() {
         srl_refresh.isRefreshing = true
         handler.sendEmptyMessageDelayed(REFRESH_COMPLETE, 2500)
     }
-
     //查找关注的书籍列表
     private fun findFollowed() {
         //建立内部查询
@@ -73,6 +63,7 @@ class RecommendFragment : Fragment(){
         innerQuery.addWhereEqualTo("objectId",BmobUser.getCurrentUser().objectId)
         val followedQuery = BmobQuery<BookCategory>()
         followedQuery.addWhereMatchesQuery("followedUsers","_User",innerQuery)
+        followedQuery.cachePolicy = BmobQuery.CachePolicy.NETWORK_ELSE_CACHE
         followedQuery.findObjects(object : FindListener<BookCategory>(){
             override fun done(categories: MutableList<BookCategory>?, e: BmobException?) {
                 if(e == null && categories != null){
@@ -97,7 +88,7 @@ class RecommendFragment : Fragment(){
                                 val bookList = books as ArrayList<BookInfo>
                                 val manager = DisScrollLinearLayoutManager(context)
                                 manager.isScrollEnabled = false
-                                rv_hot_list.adapter = RecommendAdapter(bookList, categoryList,context)
+                                rv_hot_list.adapter = RecommendAdapter(bookList,context)
                                 rv_hot_list.layoutManager = manager
                                 rv_hot_list.visibility = View.VISIBLE
                             }else{ Toast.makeText(context,e1.message,Toast.LENGTH_SHORT).show() }
@@ -111,15 +102,16 @@ class RecommendFragment : Fragment(){
     private fun findBanners() {
         val bannerQuery = BmobQuery<BannerList>()
         bannerQuery.addWhereNotEqualTo("title","").order("-UpdatedAt").setLimit(3)
+        bannerQuery.cachePolicy = BmobQuery.CachePolicy.CACHE_ELSE_NETWORK
         bannerQuery.findObjects(object:FindListener<BannerList>(){
             override fun done(banners: MutableList<BannerList>?, e: BmobException?) {
                 if(e==null){
                     val images = ArrayList<String>()
                     val titles = ArrayList<String>()
-                    //var links = ArrayList<String>()
+                    val links = ArrayList<String>()
                     banners!!.mapTo(images){it.imageUrl}
                     banners.mapTo(titles){it.title}
-                    //banners.mapTo(images){it.linkUrl}
+                    banners.mapTo(links){it.linkUrl}
                     banner.setImageLoader(GlideImageLoader)
                             .setImages(images)
                             .setBannerTitles(titles)
@@ -129,25 +121,22 @@ class RecommendFragment : Fragment(){
                             .setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE_INSIDE)
                             .isAutoPlay(true)
                             .start()
-//                    banner.setOnBannerListener {
-//
-//                    }
+                    banner.setOnBannerListener { position ->
+                        val intent = Intent(activity,BannerDetailActivity::class.java)
+                        intent.putExtra("linkUrl",links[position])
+                        startActivity(intent)
+                    }
                 }else{
                     Toast.makeText(context,e.message,Toast.LENGTH_SHORT).show()
                 }
             }
-
         })
-
     }
-
-
     override fun onStart() {
         super.onStart()
         //开始轮播
         banner.startAutoPlay()
     }
-
     override fun onStop() {
         super.onStop()
         //结束轮播

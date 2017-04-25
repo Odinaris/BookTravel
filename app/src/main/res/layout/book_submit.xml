@@ -3,7 +3,6 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="16sp"
-    app:cardCornerRadius="2sp"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout
         android:id="@+id/ll_submit"
@@ -13,32 +12,34 @@
         android:visibility="visible"
         android:layout_gravity="bottom">
         <TextView
-            android:id="@+id/tv_follow"
+            android:id="@+id/tv_price"
             android:layout_width="0sp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="关注"
+            android:text="价格:2.9元"
             android:textSize="16sp"
             android:textColor="@color/gray_dark"
             android:textStyle="normal"
             android:background="#ffffff"/>
         <LinearLayout
+            android:id="@+id/ll_break"
             android:layout_width="1sp"
             android:layout_height="match_parent"
             android:background="@color/gray_dark"
             android:layout_marginTop="16sp"
-            android:layout_marginBottom="16sp"/>
+            android:layout_marginBottom="16sp"
+            android:orientation="vertical"/>
         <TextView
             android:id="@+id/tv_want"
             android:layout_width="0sp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="购买/借阅"
-            android:textSize="16sp"
-            android:textColor="@color/gray_dark"
-            android:background="#ffffff"
+            android:text="购买"
+            android:textSize="18sp"
+            android:textColor="#cc1725"
+            android:background="#fff"
             android:textStyle="normal"/>
     </LinearLayout>
 </android.support.v7.widget.CardView>

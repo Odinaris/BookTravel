@@ -1,10 +1,11 @@
-package cn.odinaris.booktravel.book_detail
+package cn.odinaris.booktravel.category
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Window
 
 import cn.odinaris.booktravel.R
+import cn.odinaris.booktravel.category.BookTabAdapter
 import kotlinx.android.synthetic.main.book_list.*
 
 class BookListActivity : AppCompatActivity() {

@@ -3,15 +3,21 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center">
-    <ProgressBar
-        android:id="@+id/pb_loading"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/ll_loading"
         android:layout_width="match_parent"
-        android:layout_height="72sp"
-        android:padding="16sp"
-        android:gravity="center"
-        style="@style/squareProgressBarStyle"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ProgressBar
+            android:id="@+id/pb_loading"
+            android:layout_width="match_parent"
+            android:layout_height="72sp"
+            android:padding="16sp"
+            android:gravity="center"
+            style="@style/squareProgressBarStyle"/>
+    </LinearLayout>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_book_list"
         android:layout_width="match_parent"

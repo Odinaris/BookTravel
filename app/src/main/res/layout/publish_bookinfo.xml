@@ -14,7 +14,7 @@
             android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="60sp"
-            android:text="小王子"
+            android:text=""
             android:textColor="#000"
             android:textSize="18sp"
             android:background="#fff"

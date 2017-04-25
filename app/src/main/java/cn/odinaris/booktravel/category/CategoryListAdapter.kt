@@ -10,7 +10,7 @@ import android.widget.*
 import cn.odinaris.booktravel.R
 import android.support.v4.content.ContextCompat.startActivity
 import cn.odinaris.booktravel.bean.BookCategory
-import cn.odinaris.booktravel.book_detail.BookListActivity
+import cn.odinaris.booktravel.category.BookListActivity
 import com.bumptech.glide.Glide
 
 class CategoryListAdapter(var categoryList:ArrayList<BookCategory>, val context:Context)

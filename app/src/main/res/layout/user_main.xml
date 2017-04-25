@@ -14,7 +14,8 @@
             android:id="@+id/riv_user_avatar"
             android:layout_width="100sp"
             android:layout_height="100sp"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_user"/>
         <TextView
             android:id="@+id/tv_username"
             android:layout_width="match_parent"

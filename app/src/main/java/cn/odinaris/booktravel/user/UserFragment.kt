@@ -48,7 +48,6 @@ class UserFragment : Fragment(){
             tv_username.text = user.username
         }
     }
-
     private fun initClickListener() {
         cv_tags.setOnClickListener { startActivity(Intent(activity, PickActivity::class.java)) }
         cv_avatar.setOnClickListener {
@@ -62,10 +61,9 @@ class UserFragment : Fragment(){
         cv_mobile.setOnClickListener {
             val dialog = AlertDialog.Builder(context)
             val editText = EditText(context)
-            dialog
-                    .setTitle("请输入手机号码")
+            dialog.setTitle("请输入手机号码")
                     .setView(editText)
-                    .setPositiveButton("确定", DialogInterface.OnClickListener { dialog, which ->
+                    .setPositiveButton("确定", { dialog, which ->
                         val mobile = editText.text.toString()
                         val newUser = user
                         newUser.mobilePhoneNumber = mobile
@@ -88,7 +86,7 @@ class UserFragment : Fragment(){
                         val studentId = editText.text.toString()
                         val newUser = user
                         newUser.studentId = studentId
-                        newUser.update(user.objectId,object:UpdateListener(){
+                        newUser.update(user.objectId, object:UpdateListener(){
                             override fun done(p0: BmobException?) {
                                 Toast.makeText(context,"学号更新成功", Toast.LENGTH_SHORT).show()
                             }
@@ -99,8 +97,18 @@ class UserFragment : Fragment(){
         }
         cv_log_out.setOnClickListener {
             if(BmobUser.getCurrentUser()!=null){
-                BmobUser.logOut()
-                startActivity(Intent(activity,LoginActivity::class.java))
+                val dialog = AlertDialog.Builder(context)
+                dialog.setTitle("请输入学号")
+                        .setMessage("确认当前退出帐号?")
+                        .setPositiveButton("确定", { dialog, which ->
+                            BmobUser.logOut()
+                            startActivity(Intent(activity,LoginActivity::class.java))
+                            activity.finish()
+                        })
+                        .setNegativeButton("取消", null)
+                        .show()
+            }else{
+                Toast.makeText(context,"当前尚未登陆!", Toast.LENGTH_SHORT).show()
             }
         }
     }
